@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@k-workspace/eisenhower-matrix": ["libs/eisenhower-matrix/src/index.ts"]
+      "@k-workspace/eisenhower-matrix": ["libs/eisenhower-matrix/src/index.ts"],
+      "@k-workspace/utils": ["libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
