@@ -4,13 +4,13 @@ type TData<T = unknown> = {
   [key: string]: T;
 }[][];
 
-const saveItem = (key: string, data: TData) => {
+const saveItem = (key: string, data: TData | unknown) => {
   const toString = JSON.stringify(data);
   store?.setItem(key, toString);
   return true;
 };
 
-const getItem = (key: string, initData?: unknown) => {
+const getItem = (key: string, initData?: TData | unknown) => {
   const data = store?.getItem(key);
   if (data) {
     const toObject = JSON.parse(data);
