@@ -7,7 +7,10 @@ import {
 } from 'react-beautiful-dnd';
 import { useState } from 'react';
 import { TData } from '../types';
-import Tasks from './components/Tasks';
+import TasksList from './components/TasksList';
+import TasksCell from './components/TasksCell';
+import { getItem, saveItem } from '@k-workspace/utils';
+import { INIT_DATA, TASKS_LIST } from './constant';
 
 /* eslint-disable-next-line */
 export interface EisenhowerMatrixProps {}
@@ -41,17 +44,7 @@ const move = (
 
 export function EisenhowerMatrix(props: EisenhowerMatrixProps) {
   resetServerContext();
-
-  const [data, setData] = useState<TData[]>([
-    [{ id: '1', label: 'khaled 1' }],
-    [
-      { id: '2', label: 'khaled 2' },
-      { id: '0', label: 'khaled 2' },
-    ],
-    [{ id: '3', label: 'khaled 3' }],
-    [{ id: '4', label: 'khaled 4' }],
-    [{ id: '5', label: 'khaled 5' }],
-  ]);
+  const [data, setData] = useState<TData[]>(getItem(TASKS_LIST, INIT_DATA));
 
   const handleOnDragEnd = (result: DropResult, provided: ResponderProvided) => {
     const { source, destination } = result;
@@ -67,6 +60,7 @@ export function EisenhowerMatrix(props: EisenhowerMatrixProps) {
       const newState = [...data];
       newState[sInd] = items;
       setData(newState);
+      saveItem(TASKS_LIST, newState);
     } else {
       const result: any = move(data[sInd], data[dInd], source, destination);
       const newState = [...data];
@@ -74,26 +68,41 @@ export function EisenhowerMatrix(props: EisenhowerMatrixProps) {
       newState[dInd] = result[dInd];
 
       setData(newState);
+
+      saveItem(TASKS_LIST, newState);
     }
   };
 
-  const getListStyle = (isDraggingOver: boolean) => ({});
+  const handleChange = (task: string) => {
+    const newState = data;
+    const id = `${task.slice(0, 3)}_${new Date().getTime()}`;
+    newState[0].push({ task, id });
+    setData(newState);
+    saveItem(TASKS_LIST, newState);
+  };
 
   return (
-    <div>
+    <div className="relative p-5 pl-[22%]  h-[100vh] grid grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-2">
       <DragDropContext onDragEnd={handleOnDragEnd}>
         {data.map((items, index) => (
           <Droppable key={index} droppableId={`${index}`}>
             {(provided, snapshot) =>
               index === 0 ? (
-                <Tasks
+                <TasksList
                   ref={provided.innerRef}
                   provided={provided}
-                  style={getListStyle(snapshot.isDraggingOver)}
+                  isDraggingOver={snapshot.isDraggingOver}
+                  handleChange={handleChange}
                   data={items}
                 />
               ) : (
-                <div ref={provided.innerRef}></div>
+                <TasksCell
+                  ref={provided.innerRef}
+                  provided={provided}
+                  isDraggingOver={snapshot.isDraggingOver}
+                  data={items}
+                  index={index}
+                />
               )
             }
           </Droppable>
