@@ -2,15 +2,20 @@ import { FC } from 'react';
 import { classNames } from '@k-workspace/utils';
 import { Draggable } from 'react-beautiful-dnd';
 import { TData } from '../../types';
+interface ITaskBox {
+  item: TData[0];
+  index: number;
+}
 
-const TaskBox: FC<{ item: TData[0]; index: number }> = ({ item, index }) => {
-  const getItemStyle = (draggableStyle: any) => ({
+const getItemStyle = (draggableStyle: React.CSSProperties | undefined) =>
+  ({
     userSelect: 'none',
     padding: 2 * 2,
     margin: `0 0  2px 0`,
     ...draggableStyle,
-  });
+  } as React.CSSProperties);
 
+const TaskBox: FC<ITaskBox> = ({ item, index }) => {
   return (
     <Draggable key={item.id} draggableId={item.id} index={index}>
       {(provided, snapshot) => (

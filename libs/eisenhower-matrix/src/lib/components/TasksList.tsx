@@ -1,20 +1,29 @@
 import { classNames } from '@k-workspace/utils';
 import { forwardRef, useState } from 'react';
-import { TData } from '../../types';
+import { DroppableProvided } from 'react-beautiful-dnd';
+import { TRef, TData } from '../../types';
 import TaskBox from './TaskBox';
 
 interface ITasks {
   data: TData;
-  provided: any;
-  isDraggingOver: any;
+  provided: DroppableProvided;
+  isDraggingOver: boolean;
   handleChange: (task: string) => void;
 }
-const TasksList = forwardRef((props: ITasks, ref: any) => {
+const TasksList = forwardRef<TRef, ITasks>((props, ref) => {
+  const { data, handleChange, isDraggingOver, provided } = props;
   const [task, setTask] = useState('');
+
+  const onSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    handleChange(task);
+    setTask('');
+  };
+
   return (
     <div
       className={classNames(
-        props.isDraggingOver ? 'opacity-[.7]' : '',
+        isDraggingOver ? 'opacity-[.7]' : '',
         'flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white absolute left-0 top-0 bottom-0 h-[100vh] w-1/5'
       )}
     >
@@ -27,25 +36,19 @@ const TasksList = forwardRef((props: ITasks, ref: any) => {
 
         <ul
           ref={ref}
-          {...props.provided.droppableProps}
+          {...provided.droppableProps}
           className="mt-1 flex-1 px-4 bg-white space-y-1 overflow-y-auto"
         >
-          {props.data.map((item: TData[0], index: number) => (
+          {data.map((item: TData[0], index: number) => (
             <TaskBox {...{ item, index }} />
           ))}
-          {props.provided.placeholder}
+          {provided.placeholder}
         </ul>
       </div>
       <div className="border-t border-gray-200 p-4">
         <div className="flex items-start space-x-4">
           <div className="min-w-full flex-1">
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                props.handleChange(task);
-                setTask('');
-              }}
-            >
+            <form onSubmit={onSubmit}>
               <div className="border-b border-gray-200 focus-within:border-indigo-600">
                 <label htmlFor="task" className="sr-only">
                   Add your Task

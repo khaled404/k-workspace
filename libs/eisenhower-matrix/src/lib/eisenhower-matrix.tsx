@@ -26,8 +26,8 @@ const reorder = (list: TData, startIndex: number, endIndex: number) => {
 const move = (
   source: TData,
   destination: TData,
-  droppableSource: any,
-  droppableDestination: any
+  droppableSource: DropResult['source'],
+  droppableDestination: DropResult['source']
 ) => {
   const sourceClone = Array.from(source);
   const destClone = Array.from(destination);
@@ -62,7 +62,7 @@ export function EisenhowerMatrix(props: EisenhowerMatrixProps) {
       setData(newState);
       saveItem(TASKS_LIST, newState);
     } else {
-      const result: any = move(data[sInd], data[dInd], source, destination);
+      const result = move(data[sInd], data[dInd], source, destination);
       const newState = [...data];
       newState[sInd] = result[sInd];
       newState[dInd] = result[dInd];
