@@ -1,6 +1,6 @@
 const INIT_DATA = Array(5)
   .fill(0)
-  .map((x) => []);
+  .map(() => []);
 
 const TASKS_LIST = 'TASKS_LIST';
 

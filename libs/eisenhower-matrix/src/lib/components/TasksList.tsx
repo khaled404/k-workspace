@@ -1,23 +1,27 @@
 import { classNames } from '@k-workspace/utils';
 import { forwardRef, useState } from 'react';
 import { DroppableProvided } from 'react-beautiful-dnd';
-import { TRef, TData } from '../../types';
+import { TRef, TTasks } from '../../types';
+import { useTasks } from '../context/use-tasks';
 import TaskBox from './TaskBox';
 
 interface ITasks {
-  data: TData;
+  data: TTasks;
   provided: DroppableProvided;
   isDraggingOver: boolean;
-  handleChange: (task: string) => void;
+  index: number;
 }
 const TasksList = forwardRef<TRef, ITasks>((props, ref) => {
-  const { data, handleChange, isDraggingOver, provided } = props;
+  const { data, isDraggingOver, provided, index } = props;
   const [task, setTask] = useState('');
+  const { addNewTask } = useTasks();
 
   const onSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    handleChange(task);
-    setTask('');
+    if (task) {
+      addNewTask(task);
+      setTask('');
+    }
   };
 
   return (
@@ -39,8 +43,10 @@ const TasksList = forwardRef<TRef, ITasks>((props, ref) => {
           {...provided.droppableProps}
           className="mt-1 flex-1 px-4 bg-white space-y-1 overflow-y-auto"
         >
-          {data.map((item: TData[0], index: number) => (
-            <TaskBox {...{ item, index }} />
+          {data.map((item: TTasks[0], taskIndex: number) => (
+            <TaskBox
+              {...{ item, index: taskIndex, key: item.id, rowIndex: index }}
+            />
           ))}
           {provided.placeholder}
         </ul>
