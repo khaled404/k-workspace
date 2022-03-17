@@ -2,7 +2,7 @@ import { FC, Fragment, useState } from 'react';
 import { classNames } from '@k-workspace/utils';
 import { Draggable } from 'react-beautiful-dnd';
 import { TTasks } from '../../types';
-
+import useSound from 'use-sound';
 import { Menu, Transition } from '@headlessui/react';
 import {
   TrashIcon,
@@ -29,6 +29,7 @@ const TaskBox: FC<ITaskBox> = ({ item, rowIndex, index }) => {
   const { editTask, removeTask } = useTasks();
   const [isEditMode, setIsEditMode] = useState(false);
   const [task, setTask] = useState(item.task);
+  const [play] = useSound('/audio/bell.wav');
   const menuActions = [
     {
       icon: PencilIcon,
@@ -75,6 +76,7 @@ const TaskBox: FC<ITaskBox> = ({ item, rowIndex, index }) => {
                   type="checkbox"
                   checked={item.checked}
                   onChange={(e) => {
+                    play();
                     editTask(item.id, rowIndex, 'checked', e.target.checked);
                   }}
                   className="focus:ring-indigo-500 h-[17px] w-[17px] text-indigo-600 border-gray-300 rounded"

@@ -6,14 +6,20 @@
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["libs/eisenhower-matrix/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "libs/eisenhower-matrix/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/eisenhower-matrix"],
+      "outputs": [
+        "coverage/libs/eisenhower-matrix"
+      ],
       "options": {
         "jestConfig": "libs/eisenhower-matrix/jest.config.js",
         "passWithNoTests": true

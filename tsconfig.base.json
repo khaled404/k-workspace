@@ -10,14 +10,24 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@k-workspace/eisenhower-matrix": ["libs/eisenhower-matrix/src/index.ts"],
-      "@k-workspace/utils": ["libs/utils/src/index.ts"]
+      "@k-workspace/eisenhower-matrix": [
+        "libs/eisenhower-matrix/src/index.ts"
+      ],
+      "@k-workspace/utils": [
+        "libs/utils/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }
