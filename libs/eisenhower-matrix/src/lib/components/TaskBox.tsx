@@ -76,7 +76,7 @@ const TaskBox: FC<ITaskBox> = ({ item, rowIndex, index }) => {
                   type="checkbox"
                   checked={item.checked}
                   onChange={(e) => {
-                    play();
+                    e.target.checked && play();
                     editTask(item.id, rowIndex, 'checked', e.target.checked);
                   }}
                   className="focus:ring-indigo-500 h-[17px] w-[17px] text-indigo-600 border-gray-300 rounded"
@@ -140,7 +140,7 @@ const TaskBox: FC<ITaskBox> = ({ item, rowIndex, index }) => {
                                 active
                                   ? 'bg-gray-100 text-gray-900'
                                   : 'text-gray-700',
-                                'flex px-4 py-2 text-sm'
+                                'flex px-4 py-2 text-sm w-full'
                               )}
                             >
                               <menuItem.icon
