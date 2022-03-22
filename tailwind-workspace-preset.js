@@ -1,6 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
+  mode: 'jit',
   darkMode: 'class',
   theme: {
     extend: {
@@ -19,5 +20,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/typography') , require('@tailwindcss/forms')],
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
 };
