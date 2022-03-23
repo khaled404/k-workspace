@@ -4,6 +4,7 @@
     "blog": "apps/blog",
     "blog-e2e": "apps/blog-e2e",
     "eisenhower-matrix": "libs/eisenhower-matrix",
+    "shared-ui": "libs/shared/ui",
     "utils": "libs/utils"
   }
 }
