@@ -1,7 +1,7 @@
 import { FC, Fragment, useState } from 'react';
 import { classNames } from '@k-workspace/utils';
 import { Draggable } from 'react-beautiful-dnd';
-import { TTasks } from '../../types';
+import { TTasks } from './../types';
 import useSound from 'use-sound';
 import { Menu, Transition } from '@headlessui/react';
 import {
@@ -29,7 +29,7 @@ const TaskBox: FC<ITaskBox> = ({ item, rowIndex, index }) => {
   const { editTask, removeTask } = useTasks();
   const [isEditMode, setIsEditMode] = useState(false);
   const [task, setTask] = useState(item.task);
-  const [play] = useSound('/audio/bell.wav');
+  const [play] = useSound('/audio/bell.wav', { volume: 0.2 });
   const menuActions = [
     {
       icon: PencilIcon,

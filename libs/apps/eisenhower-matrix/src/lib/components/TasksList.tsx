@@ -1,7 +1,7 @@
 import { classNames } from '@k-workspace/utils';
 import { forwardRef, useState } from 'react';
 import { DroppableProvided } from 'react-beautiful-dnd';
-import { TRef, TTasks } from '../../types';
+import { TRef, TTasks } from './../types';
 import { useTasks } from '../context/use-tasks';
 import TaskBox from './TaskBox';
 

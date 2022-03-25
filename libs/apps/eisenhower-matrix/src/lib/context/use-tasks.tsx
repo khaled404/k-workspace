@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { getItem, saveItem } from '@k-workspace/utils';
 import { createContext, FC, useContext, useMemo, useState } from 'react';
-import { TTasks } from '../../types';
+import { TTasks } from './../types';
 import { INIT_DATA, TASKS_LIST } from '../constant';
 
 type TasksContextType = {

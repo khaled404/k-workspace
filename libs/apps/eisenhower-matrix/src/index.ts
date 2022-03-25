@@ -1,2 +1,2 @@
-import EisenhowerMatrix from './lib/app';
+import EisenhowerMatrix from './lib/eisenhower-matrix';
 export default EisenhowerMatrix;
