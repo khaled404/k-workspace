@@ -5,13 +5,13 @@ import {
   ResponderProvided,
   resetServerContext,
 } from 'react-beautiful-dnd';
-import { TTasks } from '../types';
+import { TTasks } from './types';
 import TasksList from './components/TasksList';
 import TasksCell from './components/TasksCell';
 import { useTasks } from './context/use-tasks';
 
 /* eslint-disable-next-line */
-export interface EisenhowerMatrixProps {}
+export interface AppProps {}
 
 const reorder = (list: TTasks, startIndex: number, endIndex: number) => {
   const result = Array.from(list);
@@ -40,7 +40,7 @@ const move = (
   return result;
 };
 
-export function EisenhowerMatrix(props: EisenhowerMatrixProps) {
+export function App(props: AppProps) {
   resetServerContext();
   const { tasksOnChange, tasks } = useTasks();
 
@@ -103,4 +103,4 @@ export function EisenhowerMatrix(props: EisenhowerMatrixProps) {
   );
 }
 
-export default EisenhowerMatrix;
+export default App;

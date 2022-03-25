@@ -1,9 +1,9 @@
 {
   "version": 2,
   "projects": {
+    "apps-eisenhower-matrix": "libs/apps/eisenhower-matrix",
     "blog": "apps/blog",
     "blog-e2e": "apps/blog-e2e",
-    "eisenhower-matrix": "libs/eisenhower-matrix",
     "shared-ui": "libs/shared/ui",
     "storybook-e2e-ui-e2e": "apps/storybook-e2e/ui-e2e",
     "utils": "libs/utils"

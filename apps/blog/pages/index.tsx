@@ -1,4 +1,4 @@
-import EisenhowerMatrix from '@k-workspace/eisenhower-matrix';
+import EisenhowerMatrix from '@apps/eisenhower-matrix';
 
 export function Index() {
   /*
