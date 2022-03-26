@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "new-app",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "application version",
+      "default": "1.0.0",
+      "x-prompt": "What's the application version ? default version will be 1.0.0."
+    },
+
+    "developer": {
+      "type": "string",
+      "description": "developer name",
+      "default": "khaled mahmoud",
+      "x-prompt": "What's the developer name? default name will be khaled mahmoud."
+    },
+    "name": {
+      "type": "string",
+      "description": "application name",
+      "default": "",
+      "x-prompt": "What's the application name?"
+    },
+    "description": {
+      "type": "string",
+      "description": "application description",
+      "default": "",
+      "x-prompt": "What's the application description?"
+    },
+    "published": {
+      "type": "boolean",
+      "description": "application is published?",
+      "default": false,
+      "x-prompt": "application is published? default value will be false"
+    },
+
+    "tags": {
+      "type": "array",
+      "description": "application tags",
+      "default": ["application"],
+      "x-prompt": "What's the application tags?"
+    }
+  },
+  "required": ["name"]
+}

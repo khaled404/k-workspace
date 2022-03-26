@@ -10,15 +10,30 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@apps/eisenhower-matrix": ["libs/apps/eisenhower-matrix/src/index.ts"],
-      "@k-workspace/shared/ui": ["libs/shared/ui/src/index.ts"],
-      "@k-workspace/utils": ["libs/utils/src/index.ts"]
+      "@apps": [
+        "libs/apps/test/src/index.ts"
+      ],
+      "@apps/eisenhower-matrix": [
+        "libs/apps/eisenhower-matrix/src/index.ts"
+      ],
+      "@k-workspace/shared/ui": [
+        "libs/shared/ui/src/index.ts"
+      ],
+      "@k-workspace/utils": [
+        "libs/utils/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }
