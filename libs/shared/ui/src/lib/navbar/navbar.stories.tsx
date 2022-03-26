@@ -16,4 +16,6 @@ Primary.args = {
     { name: 'Applications', href: '/' },
     { name: 'About', href: '/' },
   ],
+  title: 'Hi, Iʼm khaled!',
+  description: 'I’m a frontend developer',
 };
