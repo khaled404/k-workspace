@@ -10,6 +10,9 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  env: {
+    projectsPath: '/libs/apps/projects.json',
+  },
 };
 
 module.exports = withNx(nextConfig);

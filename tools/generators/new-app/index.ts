@@ -50,14 +50,13 @@ export default async function (tree: Tree, schema: NewAppSchemaOptions) {
   });
 
   updateJson(tree, './libs/apps/projects.json', (value) => {
-    return {
-      ...value,
-      [names(schema.name).propertyName]: {
-        ...schema,
-        imagePath: `/${fileName}.png`,
-      },
+    const newProject = {
+      id: value[value.length - 1].id + 1,
+      imagePath: `/images/${fileName}.png`,
+      importPath: `@k-workspace/${fileName}`,
+      ...schema,
     };
+    return [...value, newProject];
   });
-
   await formatFiles(tree);
 }
