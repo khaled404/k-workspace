@@ -18,10 +18,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@apps": [
-        "libs/apps/test/src/index.ts"
-      ],
-      "@apps/eisenhower-matrix": [
+      "@k-workspace/eisenhower-matrix": [
         "libs/apps/eisenhower-matrix/src/index.ts"
       ],
       "@k-workspace/shared/ui": [
