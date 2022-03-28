@@ -2,7 +2,11 @@ import { Tree, formatFiles, updateJson, names } from '@nrwl/devkit';
 import { Linter } from '@nrwl/linter';
 import { libraryGenerator, componentGenerator } from '@nrwl/react';
 
-export default async function (tree: Tree, schema: any) {
+interface NewAppSchemaOptions {
+  name: string;
+}
+
+export default async function (tree: Tree, schema: NewAppSchemaOptions) {
   const fileName = names(schema.name).fileName;
 
   await libraryGenerator(tree, {

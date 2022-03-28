@@ -3,7 +3,11 @@ import { componentStoryGenerator, componentGenerator } from '@nrwl/react';
 
 const uiExportFilePath = '/libs/shared/ui/src/index.ts';
 
-export default async function (tree: Tree, schema: any) {
+interface SharedUiSchemaOptions {
+  name: string;
+}
+
+export default async function (tree: Tree, schema: SharedUiSchemaOptions) {
   const options = {
     componentPath: `lib/${names(schema.name).name}/${
       names(schema.name).fileName
@@ -31,6 +35,7 @@ export default async function (tree: Tree, schema: any) {
 }
 
 /*
+old code!
 function convertComponentName([first, ...rest]: any) {
   const value = first.toUpperCase() + rest.join('');
   const charIndexes = [];
