@@ -1,0 +1,7 @@
+import {T<%= name %>} from './<%= fileName %>-types'
+
+const <%= propertyName %> = ()=> {
+  return "<%= fileName %>"
+}
+
+export { <%= propertyName %> }
