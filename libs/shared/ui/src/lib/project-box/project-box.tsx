@@ -1,18 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable-next-line */
 
+import { TProject } from '@k-workspace/data-providers/projects';
 import Link from 'next/link';
 
-export type TProject = {
-  id: number;
-  version: string;
-  developer: string;
-  name: string;
-  description: string;
-  imagePath: string;
-  published: boolean;
-  tags: string[];
-};
 export interface ProjectBoxProps {
   projects: TProject[];
 }
