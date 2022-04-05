@@ -28,11 +28,7 @@ export default async function (tree: Tree, schema: UtilSchemaOptions) {
 
   const file = tree.read(exportFilePath);
 
-  const newExports = Buffer.from(
-    `export * from './${fileName}/${fileName}';
-     export * from './${fileName}/${fileName}-types';
-    `
-  );
+  const newExports = Buffer.from(`export * from './${fileName}/${fileName}';`);
 
   tree.write(exportFilePath, Buffer.concat([file, newExports]));
 
