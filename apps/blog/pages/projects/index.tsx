@@ -1,3 +1,4 @@
+import { httpDriver } from '@k-workspace/utils';
 import { useEffect } from 'react';
 
 /* eslint-disable-next-line */
@@ -5,8 +6,7 @@ export interface ProjectsProps {}
 
 export function Projects({ ...projects }: ProjectsProps) {
   const fetchComments = async () => {
-    const response = await fetch('/api/projects');
-    const data = await response.json();
+    const data = await httpDriver('projects');
     console.log(data);
   };
   useEffect(() => {
