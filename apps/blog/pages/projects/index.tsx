@@ -1,31 +1,19 @@
-import { ProjectBox, TProject } from '@k-workspace/shared/ui';
-import { readFileSync } from 'fs';
-import { GetStaticProps } from 'next';
-import { join } from 'path';
+import { useEffect } from 'react';
 
 /* eslint-disable-next-line */
-export interface ProjectsProps {
-  projects: TProject[];
-}
+export interface ProjectsProps {}
 
-export function Projects({ projects }: ProjectsProps) {
-  return (
-    <div>
-      <ProjectBox projects={projects} />
-    </div>
-  );
-}
-
-export const getStaticProps: GetStaticProps<ProjectsProps> = async () => {
-  const PROJECTS_PATH = join(process.cwd(), process.env.projectsPath);
-
-  const file: any = readFileSync(PROJECTS_PATH);
-  const data = JSON.parse(file);
-  return {
-    props: {
-      projects: data,
-    },
+export function Projects({ ...projects }: ProjectsProps) {
+  const fetchComments = async () => {
+    const response = await fetch('/api/projects');
+    const data = await response.json();
+    console.log(data);
   };
-};
+  useEffect(() => {
+    fetchComments();
+  }, []);
+
+  return <div>Projects</div>;
+}
 
 export default Projects;
