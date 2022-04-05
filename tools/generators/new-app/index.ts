@@ -49,7 +49,7 @@ export default async function (tree: Tree, schema: NewAppSchemaOptions) {
     };
   });
 
-  updateJson(tree, './libs/apps/projects.json', (value) => {
+  updateJson(tree, '/data/projects.json', (value) => {
     const id = value.length !== 0 ? value[value.length - 1].id + 1 : 1;
     const newProject = {
       id,
