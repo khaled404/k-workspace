@@ -22,10 +22,9 @@ export function Projects({ projects }: ProjectsProps) {
 export default Projects;
 
 export const getStaticProps: GetStaticProps<ProjectsProps> = async () => {
-  const data = (await httpDriver<TProject[]>('projects')) || [];
   return {
     props: {
-      projects: data,
+      projects: [],
     },
   };
 };
