@@ -9,21 +9,15 @@ export interface ProjectsProps {
 }
 
 export function Projects({ projects }: ProjectsProps) {
-  const loadData = async () => {
-    const data = await httpDriver<TProject[]>('projects');
-    console.log(data);
-  };
-  useEffect(() => {
-    loadData();
-  }, []);
-
   return <ProjectBox projects={projects} />;
 }
 
 export default Projects;
 
 export const getStaticProps: GetStaticProps<ProjectsProps> = async () => {
-  const data: TProject[] = readFileSync(rootPath('/data/projects.json')) as any;
+  const file: any = readFileSync(rootPath('/data/projects.json'));
+
+  const data: TProject[] = JSON.parse(file);
 
   return {
     props: {
