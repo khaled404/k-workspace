@@ -4,7 +4,10 @@ const httpDriver = async <T = unknown>(
   path: string,
   options?: THttpDriver
 ): Promise<T> => {
-  const response = await fetch('/api/' + path, options);
+  const response = await fetch(
+    process.env['baseUrl'] + '/api/' + path,
+    options
+  );
   return await response.json();
 };
 

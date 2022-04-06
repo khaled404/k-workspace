@@ -10,7 +10,12 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
-  env: {},
+  env: {
+    baseUrl:
+      process.env.NODE_ENV === 'development'
+        ? 'http://localhost:4200/'
+        : 'https://k-workspace.vercel.app/',
+  },
 };
 
 module.exports = withNx(nextConfig);

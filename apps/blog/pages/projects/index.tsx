@@ -1,19 +1,22 @@
+import { ProjectBox, TProject } from '@k-workspace/shared/ui';
 import { httpDriver } from '@k-workspace/utils';
-import { useEffect } from 'react';
+import { GetStaticProps } from 'next';
 
-/* eslint-disable-next-line */
-export interface ProjectsProps {}
+export interface ProjectsProps {
+  projects: TProject[];
+}
 
-export function Projects({ ...projects }: ProjectsProps) {
-  const fetchComments = async () => {
-    const data = await httpDriver('projects');
-    console.log(data);
-  };
-  useEffect(() => {
-    fetchComments();
-  }, []);
-
-  return <div>Projects</div>;
+export function Projects({ projects }: ProjectsProps) {
+  return <ProjectBox projects={projects} />;
 }
 
 export default Projects;
+
+export const getStaticProps: GetStaticProps<ProjectsProps> = async () => {
+  const data = await httpDriver<TProject[]>('projects');
+  return {
+    props: {
+      projects: data,
+    },
+  };
+};
