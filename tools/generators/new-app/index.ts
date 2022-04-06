@@ -6,6 +6,7 @@ interface NewAppSchemaOptions {
   name: string;
 }
 
+const DATA_PATH = '/apps/blog/api/data/projects.json';
 export default async function (tree: Tree, schema: NewAppSchemaOptions) {
   const fileName = names(schema.name).fileName;
 
@@ -49,7 +50,7 @@ export default async function (tree: Tree, schema: NewAppSchemaOptions) {
     };
   });
 
-  updateJson(tree, '/data/projects.json', (value) => {
+  updateJson(tree, DATA_PATH, (value) => {
     const id = value.length !== 0 ? value[value.length - 1].id + 1 : 1;
     const newProject = {
       id,
