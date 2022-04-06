@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 export function Index() {
   const loadData = async () => {
-    const data = await httpDriver('api');
+    const data = await httpDriver();
     console.log(data);
   };
   useEffect(() => {
