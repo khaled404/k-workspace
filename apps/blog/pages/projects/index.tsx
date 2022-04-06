@@ -8,6 +8,14 @@ export interface ProjectsProps {
 }
 
 export function Projects({ projects }: ProjectsProps) {
+  const loadData = async () => {
+    const data = await httpDriver<TProject[]>('projects');
+    console.log(data);
+  };
+  useEffect(() => {
+    loadData();
+  }, []);
+
   return <ProjectBox projects={projects} />;
 }
 
