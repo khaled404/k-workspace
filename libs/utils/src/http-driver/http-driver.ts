@@ -1,7 +1,7 @@
 import { THttpDriver } from './http-driver-types';
 
 const httpDriver = async <T = unknown>(
-  path: string,
+  path = '',
   options?: THttpDriver
 ): Promise<T> => {
   const response = await fetch(process.env['baseUrl'] + path, options);
