@@ -1,5 +1,6 @@
 import { ProjectBox, TProject } from '@k-workspace/shared/ui';
-import { httpDriver } from '@k-workspace/utils';
+import { httpDriver, rootPath } from '@k-workspace/utils';
+import { readFileSync } from 'fs';
 import { GetStaticProps } from 'next';
 import { useEffect } from 'react';
 
@@ -22,7 +23,8 @@ export function Projects({ projects }: ProjectsProps) {
 export default Projects;
 
 export const getStaticProps: GetStaticProps<ProjectsProps> = async () => {
-  const data = await httpDriver<TProject[]>('projects');
+  const data: TProject[] = readFileSync(rootPath('/data/projects.json')) as any;
+
   return {
     props: {
       projects: data,
