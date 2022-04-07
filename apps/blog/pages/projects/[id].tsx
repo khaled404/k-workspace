@@ -7,17 +7,12 @@ const EisenhowerMatrix = dynamic(
   async () => (await import('@k-workspace/eisenhower-matrix')).EisenhowerMatrix
 );
 
-const ProjectBox = dynamic(
-  async () => (await import('@k-workspace/shared/ui')).ProjectBox
-);
-
 interface IProjectDetails {
   project: TProject;
 }
 const ProjectDetails = ({ project }: IProjectDetails) => {
   const projects = {
     1: EisenhowerMatrix,
-    2: ProjectBox,
   };
   const ProjectCom = projects[project.id];
 
