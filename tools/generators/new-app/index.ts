@@ -6,7 +6,7 @@ interface NewAppSchemaOptions {
   name: string;
 }
 
-const DATA_PATH = '/apps/blog/api/data/projects.json';
+const DATA_PATH = '/data/projects.json';
 export default async function (tree: Tree, schema: NewAppSchemaOptions) {
   const fileName = names(schema.name).fileName;
 
