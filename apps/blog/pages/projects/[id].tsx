@@ -13,6 +13,7 @@ interface IProjectDetails {
 const ProjectDetails = ({ project }: IProjectDetails) => {
   const projects = {
     1: EisenhowerMatrix,
+    2: <div>test project</div>,
   };
   const ProjectCom = projects[project.id];
 
