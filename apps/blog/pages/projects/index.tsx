@@ -1,12 +1,12 @@
 import { ProjectBox, TProject } from '@k-workspace/shared/ui';
-import { getProjects } from '../../utils/get-projects';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { getProjects } from '../../utils/data-provider/data-provider';
+import { GetStaticProps } from 'next';
 
 export interface ProjectsProps {
   projects: TProject[];
 }
 
-export function Projects({ projects }: ProjectsProps) {
+function Projects({ projects }: ProjectsProps) {
   return <ProjectBox projects={projects} />;
 }
 

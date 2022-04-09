@@ -17,6 +17,8 @@
     "@tailwindcss/typography": "^0.5.2",
     "autoprefixer": "^10.4.4",
     "core-js": "^3.6.5",
+    "fs": "^0.0.1-security",
+    "fs-extra": "^10.0.1",
     "next": "12.1.0",
     "postcss": "^8.4.12",
     "react": "17.0.2",

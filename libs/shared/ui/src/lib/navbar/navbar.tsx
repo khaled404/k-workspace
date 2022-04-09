@@ -86,7 +86,7 @@ export function Navbar({ links, description, title }: NavbarProps) {
                 </div>
               </div>
               <div className="hidden md:block md:ml-10 md:space-x-10">
-                {links.map((item) => (
+                {links?.map((item) => (
                   <Link key={item.name} href={item.href}>
                     <a className="font-medium text-gray-500 hover:text-gray-900">
                       {item.name}
@@ -127,7 +127,7 @@ export function Navbar({ links, description, title }: NavbarProps) {
                   </div>
                 </div>
                 <div className="px-2 pt-2 pb-3 space-y-1">
-                  {links.map((item) => (
+                  {links?.map((item) => (
                     <Link key={item.name} href={item.href}>
                       <a className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
                         {item.name}
