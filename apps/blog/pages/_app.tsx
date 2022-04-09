@@ -4,16 +4,15 @@ import App from 'next/app';
 
 import Page, { PageProps } from './components/page';
 import './styles.css';
-import { httpDriver } from '@k-workspace/utils';
 
-function CustomApp({ Component, pageProps }: AppProps) {
+function CustomApp({ Component, pageProps, ...props }: AppProps) {
   return (
     <>
       <Head>
         <title>Welcome to blog!</title>
       </Head>
       <main className="app">
-        <Page {...pageProps}>
+        <Page {...props}>
           <Component {...pageProps} />
         </Page>
       </main>
