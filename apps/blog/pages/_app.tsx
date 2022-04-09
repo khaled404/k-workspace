@@ -23,9 +23,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
 
 export default CustomApp;
 
-CustomApp.getInitialProps = async (appContext) => {
-  const appProps = await App.getInitialProps(appContext);
-  const data = await httpDriver<PageProps>();
+// CustomApp.getInitialProps = async (appContext) => {
+//   const appProps = await App.getInitialProps(appContext);
+//   const data = await httpDriver<PageProps>();
 
-  return { ...appProps, pageProps: { ...appProps, ...data } };
-};
+//   return { ...appProps, pageProps: { ...appProps, ...data } };
+// };
