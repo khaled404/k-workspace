@@ -1,7 +1,7 @@
 import { Footer, Navbar } from '@k-workspace/shared/ui';
 import { NextPage } from 'next';
 
-const Page: NextPage = () => {
+const Page: NextPage = ({ children }) => {
   return (
     <>
       <Navbar />
