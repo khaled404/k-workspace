@@ -1,24 +1,12 @@
-import {
-  Footer,
-  FooterProps,
-  Navbar,
-  NavbarProps,
-} from '@k-workspace/shared/ui';
-import { getFileParser } from '../../utils/data-provider/data-provider';
-import { GetStaticProps, NextPage } from 'next';
+import { Footer, Navbar } from '@k-workspace/shared/ui';
+import { NextPage } from 'next';
 
-export interface PageProps {
-  navbar?: NavbarProps;
-  footer?: FooterProps;
-}
-
-const Page: NextPage<PageProps> = (props) => {
-  const { children, navbar, footer } = props;
+const Page: NextPage = () => {
   return (
     <>
-      <Navbar {...navbar} />
+      <Navbar />
       {children}
-      <Footer {...footer} />
+      <Footer />
     </>
   );
 };

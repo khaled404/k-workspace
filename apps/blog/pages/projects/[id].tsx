@@ -18,9 +18,9 @@ const ProjectDetails = ({ project }: IProjectDetails) => {
   const projects = {
     1: EisenhowerMatrix,
   };
-  const ProjectCom = projects[project.id];
+  const ProjectComponent = projects[project.id];
 
-  return <ProjectCom />;
+  return <ProjectComponent />;
 };
 export default ProjectDetails;
 
