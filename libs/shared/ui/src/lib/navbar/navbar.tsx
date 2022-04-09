@@ -3,16 +3,12 @@ import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 import { Fragment } from 'react';
+import navbar from '../../data/navbar';
 
 export type TNavLink = { name: string; href: string };
 
-export interface NavbarProps {
-  links: TNavLink[];
-  title: string;
-  description: string;
-}
-
-export function Navbar({ links, description, title }: NavbarProps) {
+export function Navbar() {
+  const { links, description, title } = navbar;
   return (
     <div className="relative bg-white overflow-hidden">
       <div

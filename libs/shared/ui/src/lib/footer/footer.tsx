@@ -1,14 +1,10 @@
 import { FacebookIcon, GithubIcon, LinkedinIcon } from './Icons';
-
+import footer from '../../data/footer';
 export type TSocial = {
   href: string;
   name: string;
   icon: string;
 };
-
-export interface FooterProps {
-  social: TSocial[];
-}
 
 const RenderIcon = (props: any) => {
   const icons: any = {
@@ -19,12 +15,12 @@ const RenderIcon = (props: any) => {
   return icons[props.iconName];
 };
 
-export function Footer({ social }: FooterProps) {
+export function Footer() {
   return (
     <footer className="bg-white">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
         <div className="flex justify-center space-x-6 md:order-2">
-          {social?.map((item) => (
+          {footer?.social?.map((item: TSocial) => (
             <a
               key={item.name}
               href={item.href}
