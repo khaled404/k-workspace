@@ -4,14 +4,57 @@
   "$id": "new-article",
   "type": "object",
   "properties": {
-    "name": {
+    "title": {
       "type": "string",
-      "description": "Library name",
+      "description": "The title of the blog post",
       "$default": {
         "$source": "argv",
         "index": 0
-      }
+      },
+      "x-prompt": "What's the title of your new article?"
+    },
+    "author": {
+      "type": "string",
+      "description": "The name of the author",
+      "default": "khaled mahmoud"
+    },
+    "tags": {
+      "type": "array",
+      "description": "tags",
+      "uniqueItems": true,
+      "multiselect": true,
+      "items": [
+        "react",
+        "react-native",
+        "react-query",
+        "tailwind css",
+        "nextjs",
+        "nodejs",
+        "typescript",
+        "javascript",
+        "json",
+        "Nx",
+        "Nx-generators",
+        "git",
+        "vercel",
+        "cypress",
+        "e2e",
+        "jest",
+        "storybook",
+        "monorepo",
+        "tools",
+        "application",
+        "html",
+        "css",
+        "sass",
+        "tasks",
+        "hooks",
+        "time management",
+        "web",
+        "mobile",
+        "vsCode"
+      ]
     }
   },
-  "required": ["name"]
+  "required": ["title", "tags", "author"]
 }
