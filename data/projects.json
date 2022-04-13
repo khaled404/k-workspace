@@ -9,5 +9,16 @@
     "version": "1.0.0",
     "developer": "khaled mahmoud",
     "tags": ["application", "tasks", "time management", "tools"]
+  },
+  {
+    "id": 2,
+    "imagePath": "https://tailwindui.com/img/ecommerce-images/product-page-05-related-product-01.jpg",
+    "importPath": "@k-workspace/mdx-editor",
+    "name": "mdx-editor",
+    "description": "Markdown editor for blog page",
+    "developer": "khaled",
+    "published": true,
+    "tags": ["application", "tools", "blogs", "editor", "mdx"],
+    "version": "1.0.0"
   }
 ]
