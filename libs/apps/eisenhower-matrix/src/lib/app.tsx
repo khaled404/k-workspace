@@ -74,7 +74,7 @@ export function App(props: AppProps) {
 
   return (
     <div className="relative p-5 pl-[22%]  h-[100vh] grid grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-2">
-      <DragDropContext onDragEnd={handleOnDragEnd}>
+      <DragDropContext onDragEnd={handleOnDragEnd} enableDefaultSensors>
         {tasks.map((items, index) => (
           <Droppable key={index} droppableId={`${index}`}>
             {(provided, snapshot) =>

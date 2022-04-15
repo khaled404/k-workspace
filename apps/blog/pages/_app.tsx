@@ -1,8 +1,9 @@
+import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Page from './components/page';
 import './styles.css';
 //test
-function CustomApp({ Component, pageProps }) {
+function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
