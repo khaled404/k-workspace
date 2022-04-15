@@ -6,13 +6,13 @@ export type TSocial = {
   icon: string;
 };
 
-const RenderIcon = (props: any) => {
-  const icons: any = {
+const RenderIcon = (props: { name: string; className: string }) => {
+  const icons: { [key: string]: JSX.Element } = {
     facebook: <FacebookIcon {...props} />,
     github: <GithubIcon {...props} />,
     linkedin: <LinkedinIcon {...props} />,
   };
-  return icons[props.iconName];
+  return icons[props.name];
 };
 
 export function Footer() {
@@ -28,7 +28,7 @@ export function Footer() {
             >
               <span className="sr-only">{item.name}</span>
               <RenderIcon
-                iconName={item.icon}
+                name={item.icon}
                 className="h-6 w-6"
                 aria-hidden="true"
               />

@@ -1,7 +1,5 @@
 import fs from 'fs';
-import { join } from 'path';
 import matter from 'gray-matter';
-import { MarkdownDocument } from './types';
 import { serialize } from 'next-mdx-remote/serialize';
 import { rootPath } from '@k-workspace/utils';
 import { TArticle } from '@k-workspace/shared/ui';

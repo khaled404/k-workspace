@@ -1,8 +1,5 @@
 import { TProject } from '@k-workspace/shared/ui';
-import {
-  getSingleProject,
-  getProjects,
-} from '../../utils/data-provider/data-provider';
+import { getProjects, getSingleProject } from '@k-workspace/json-data-provider';
 
 import { GetStaticProps, GetStaticPaths } from 'next';
 import dynamic from 'next/dynamic';
@@ -11,12 +8,17 @@ const EisenhowerMatrix = dynamic(
   async () => (await import('@k-workspace/eisenhower-matrix')).EisenhowerMatrix
 );
 
+const MdxEditor = dynamic(
+  async () => (await import('@k-workspace/mdx-editor')).MdxEditor
+);
+
 interface IProjectDetails {
   project: TProject;
 }
 const ProjectDetails = ({ project }: IProjectDetails) => {
   const projects = {
     1: EisenhowerMatrix,
+    2: MdxEditor,
   };
   const ProjectComponent = projects[project.id];
 

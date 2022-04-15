@@ -1,5 +1,5 @@
 import { ProjectBox, TProject } from '@k-workspace/shared/ui';
-import { getProjects } from '../../utils/data-provider/data-provider';
+import { getProjects } from '@k-workspace/json-data-provider';
 import { GetStaticProps } from 'next';
 
 export interface ProjectsProps {

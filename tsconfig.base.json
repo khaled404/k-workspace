@@ -18,6 +18,9 @@
       "@k-workspace/eisenhower-matrix": [
         "libs/apps/eisenhower-matrix/src/index.ts"
       ],
+      "@k-workspace/json-data-provider": [
+        "libs/json-data-provider/src/index.ts"
+      ],
       "@k-workspace/markdown": ["libs/markdown/src/index.ts"],
       "@k-workspace/mdx-editor": ["libs/apps/mdx-editor/src/index.ts"],
       "@k-workspace/shared/ui": ["libs/shared/ui/src/index.ts"],

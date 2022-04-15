@@ -1,0 +1,23 @@
+{
+  "root": "libs/json-data-provider",
+  "sourceRoot": "libs/json-data-provider/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/json-data-provider/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/json-data-provider"],
+      "options": {
+        "jestConfig": "libs/json-data-provider/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
