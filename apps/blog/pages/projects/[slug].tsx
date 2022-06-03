@@ -22,7 +22,11 @@ const ProjectDetails = ({ project }: IProjectDetails) => {
   };
   const ProjectComponent = projects[project.slug];
 
-  return <ProjectComponent />;
+  return (
+    <div className="container mx-auto">
+      <ProjectComponent />
+    </div>
+  );
 };
 export default ProjectDetails;
 

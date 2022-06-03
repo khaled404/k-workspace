@@ -1,5 +1,5 @@
 import App from './app';
-import { TasksProvider } from './context/use-tasks';
+import { TasksProvider } from './context/tasks';
 
 const EisenhowerMatrix = () => (
   <TasksProvider>

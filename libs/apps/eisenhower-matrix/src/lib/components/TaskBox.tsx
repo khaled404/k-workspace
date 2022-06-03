@@ -9,7 +9,7 @@ import {
   DotsVerticalIcon,
   PencilIcon,
 } from '@heroicons/react/solid';
-import { useTasks } from '../context/use-tasks';
+import { useTasks } from '../context/tasks';
 
 interface ITaskBox {
   item: TTasks[0];

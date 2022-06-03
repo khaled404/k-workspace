@@ -8,7 +8,7 @@ import {
 import { TTasks } from './types';
 import TasksList from './components/TasksList';
 import TasksCell from './components/TasksCell';
-import { useTasks } from './context/use-tasks';
+import { useTasks } from './context/tasks';
 
 /* eslint-disable-next-line */
 export interface AppProps {}
@@ -73,7 +73,7 @@ export function App(props: AppProps) {
   };
 
   return (
-    <div className="relative p-5 pl-[22%]  h-[100vh] grid grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-2">
+    <div className="relative pr-5  pl-[22%]  h-[100vh] grid grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-2">
       <DragDropContext onDragEnd={handleOnDragEnd} enableDefaultSensors>
         {tasks.map((items, index) => (
           <Droppable key={index} droppableId={`${index}`}>

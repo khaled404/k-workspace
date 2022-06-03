@@ -1,5 +1,11 @@
+import { HomeHeader } from '@k-workspace/shared/ui';
+
 export function Index() {
-  return <div></div>;
+  return (
+    <>
+      <HomeHeader />
+    </>
+  );
 }
 
 export default Index;

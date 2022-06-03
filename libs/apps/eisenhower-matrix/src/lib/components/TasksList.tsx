@@ -2,7 +2,7 @@ import { classNames } from '@k-workspace/utils';
 import { forwardRef, useState } from 'react';
 import { DroppableProvided } from 'react-beautiful-dnd';
 import { TRef, TTasks } from './../types';
-import { useTasks } from '../context/use-tasks';
+import { useTasks } from '../context/tasks';
 import TaskBox from './TaskBox';
 
 interface ITasks {
@@ -28,7 +28,7 @@ const TasksList = forwardRef<TRef, ITasks>((props, ref) => {
     <div
       className={classNames(
         isDraggingOver ? 'opacity-[.7]' : '',
-        'flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white absolute left-0 top-0 bottom-0 h-[100vh] w-1/5'
+        'flex-1 flex flex-col min-h-0 border border-gray-200 bg-white absolute left-0 top-0 bottom-0 h-[100vh] w-1/5'
       )}
     >
       <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-hidden">
@@ -70,7 +70,7 @@ const TasksList = forwardRef<TRef, ITasks>((props, ref) => {
                   }}
                 />
               </div>
-              <div className="pt-2 flex justify-between">
+              <div className="pt-6 flex justify-between">
                 <div className="flex items-center space-x-5"></div>
                 <div className="flex-shrink-0">
                   <button

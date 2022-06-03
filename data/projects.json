@@ -12,7 +12,7 @@
   },
   {
     "id": 2,
-    "imagePath": "/images/memorize-words.png",
+    "imagePath": "https://tailwindui.com/img/ecommerce-images/product-page-05-related-product-01.jpg",
     "slug": "MemorizeWords",
     "description": "app for saving and all info about words I always forget about it and quickly get this word with search in the app I will use this app for learning english and save words I lernid to get them in another time",
     "name": "memorize-words",
