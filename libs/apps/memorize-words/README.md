@@ -9,5 +9,5 @@ An app to memorize all the information about the words that I always forget  and
    - Sentence
    - Translations
    - Pronunciation
-2. Quoic search for this word or sentence or translations
+2. Quick search for this word, sentence or translations
 3. Practice writing a word or sentence
