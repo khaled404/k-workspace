@@ -14,7 +14,7 @@ export function Navbar() {
       <div className="relative pt-6  pb-6">
         <Popover>
           <nav
-            className="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6"
+            className="relative flex items-center justify-between container mx-auto"
             aria-label="Global"
           >
             <div className="flex items-center flex-1">
