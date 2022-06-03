@@ -4,7 +4,7 @@ app for saving and all info about words I always forget about it and quickly get
 
 ## Features
 
-1. Save all inforomations for words like
+1. Save all informations for words like
    - Image
    - Sentence
    - Translations
