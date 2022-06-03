@@ -1,0 +1,23 @@
+{
+  "root": "libs/apps/memorize-words",
+  "sourceRoot": "libs/apps/memorize-words/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/apps/memorize-words/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/apps/memorize-words"],
+      "options": {
+        "jestConfig": "libs/apps/memorize-words/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

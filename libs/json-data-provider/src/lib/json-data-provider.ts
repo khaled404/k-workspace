@@ -15,8 +15,8 @@ const getProjects = (): TProject[] => {
   return data.filter((item) => item.published);
 };
 
-const getSingleProject = (id?: number): TProject => {
-  return getProjects().filter((item) => item.id === id)[0];
+const getSingleProject = (slug?: string): TProject => {
+  return getProjects().filter((item) => item.slug === slug)[0];
 };
 
 export { getProjects, getSingleProject, getFileParser };
