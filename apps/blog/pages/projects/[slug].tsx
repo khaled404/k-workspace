@@ -8,8 +8,8 @@ const EisenhowerMatrix = dynamic(
   async () => (await import('@k-workspace/eisenhower-matrix')).EisenhowerMatrix
 );
 
-const MdxEditor = dynamic(
-  async () => (await import('@k-workspace/mdx-editor')).MdxEditor
+const MemorizeWords = dynamic(
+  async () => (await import('@k-workspace/memorize-words')).MemorizeWords
 );
 
 interface IProjectDetails {
@@ -17,10 +17,10 @@ interface IProjectDetails {
 }
 const ProjectDetails = ({ project }: IProjectDetails) => {
   const projects = {
-    1: EisenhowerMatrix,
-    2: MdxEditor,
+    EisenhowerMatrix,
+    MemorizeWords,
   };
-  const ProjectComponent = projects[project.id];
+  const ProjectComponent = projects[project.slug];
 
   return <ProjectComponent />;
 };
@@ -29,7 +29,7 @@ export default ProjectDetails;
 export const getStaticProps: GetStaticProps<IProjectDetails> = async ({
   params,
 }) => {
-  const project = getSingleProject(+params.id);
+  const project = getSingleProject(params.slug as string);
   return {
     props: {
       project,
@@ -37,9 +37,11 @@ export const getStaticProps: GetStaticProps<IProjectDetails> = async ({
   };
 };
 
-export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
+export const getStaticPaths: GetStaticPaths<{
+  slug: string;
+}> = async () => {
   const paths = getProjects().map((item) => ({
-    params: { id: item.id.toString() },
+    params: { slug: item.slug },
   }));
 
   return {

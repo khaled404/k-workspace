@@ -6,7 +6,7 @@ import Link from 'next/link';
 export type TProject = {
   id: number;
   imagePath: string;
-  importPath: string;
+  slug: string;
   name: string;
   description: string;
   published: boolean;
@@ -43,7 +43,7 @@ export function ProjectBox({ projects }: ProjectBoxProps) {
               </div>
               <div className="mt-4 flex items-center justify-between text-base font-medium text-gray-900 space-x-8">
                 <h3>
-                  <Link href={'projects/' + project.id}>
+                  <Link href={'projects/' + project.slug}>
                     <a>
                       <span aria-hidden="true" className="absolute inset-0" />
                       {project.name}

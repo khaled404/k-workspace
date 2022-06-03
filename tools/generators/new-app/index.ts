@@ -55,7 +55,7 @@ export default async function (tree: Tree, schema: NewAppSchemaOptions) {
     const newProject = {
       id,
       imagePath: `/images/${fileName}.png`,
-      importPath: `@k-workspace/${fileName}`,
+      slug: names(schema.name).className,
       ...schema,
     };
     return [...value, newProject];

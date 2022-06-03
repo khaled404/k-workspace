@@ -2,7 +2,7 @@
   {
     "id": 1,
     "imagePath": "https://tailwindui.com/img/ecommerce-images/product-page-05-related-product-01.jpg",
-    "importPath": "@k-workspace/eisenhower-matrix",
+    "slug": "EisenhowerMatrix",
     "name": "eisenhower-matrix",
     "description": "The Eisenhower Matrix is a task management tool that helps you organize and prioritize tasks by urgency and importance. Using the tool, you’ll divide your tasks into four boxes based on the tasks you’ll do first, the tasks you’ll schedule for later, the tasks you’ll delegate, and the tasks you’ll delete. In this piece, we’ll explain how to set up an Eisenhower Matrix and provide tips for task prioritization",
     "published": true,
@@ -12,13 +12,22 @@
   },
   {
     "id": 2,
-    "imagePath": "https://tailwindui.com/img/ecommerce-images/product-page-05-related-product-01.jpg",
-    "importPath": "@k-workspace/mdx-editor",
-    "name": "mdx-editor",
-    "description": "Markdown editor for blog page",
-    "developer": "khaled",
+    "imagePath": "/images/memorize-words.png",
+    "slug": "MemorizeWords",
+    "description": "app for saving and all info about words I always forget about it and quickly get this word with search in the app I will use this app for learning english and save words I lernid to get them in another time",
+    "name": "memorize-words",
+    "version": "1.0.0",
+    "developer": "khaled mahmoud",
     "published": true,
-    "tags": ["application", "tools", "blogs", "editor", "mdx"],
-    "version": "1.0.0"
+    "tags": [
+      "application",
+      "tools",
+      "english",
+      "learning",
+      "words",
+      "sentence",
+      "pronunciation",
+      "translations"
+    ]
   }
 ]
