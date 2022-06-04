@@ -1,0 +1,75 @@
+import { Transition } from '@headlessui/react';
+import { LoadingScreen } from '@k-workspace/shared/ui';
+import type { IWordsData } from '@k-workspace/types';
+import { httpDriver, useQuery } from '@k-workspace/utils';
+import { FC, useState } from 'react';
+import AddWord from './components/AddWord';
+import Search from './components/Search';
+import WordDetails from './components/WordDetails';
+import { INITIAL_WORD_VALUES, WORD_API_PATH } from './constant';
+
+/* eslint-disable-next-line */
+interface MemorizeWordsProps {}
+
+const getAllWords = async () => {
+  const { data } = await httpDriver<{ data: IWordsData[] }>(WORD_API_PATH);
+  return data;
+};
+
+const MemorizeWords: FC<MemorizeWordsProps> = () => {
+  const [showWord, setShowWord] = useState(false);
+  const [selectedWord, setSelectedWord] =
+    useState<IWordsData>(INITIAL_WORD_VALUES);
+
+  const {
+    data: words,
+    isLoading,
+    refetch,
+  } = useQuery<IWordsData[]>(getAllWords);
+
+  const handelSelectedWord = (value: IWordsData) => {
+    setSelectedWord(value);
+    setShowWord(true);
+  };
+  const handelBack = () => {
+    setShowWord(false);
+    setSelectedWord(INITIAL_WORD_VALUES);
+  };
+  if (isLoading) return <LoadingScreen />;
+
+  return (
+    <>
+      <Search
+        words={words}
+        selectedWord={selectedWord}
+        handelSelectedWord={handelSelectedWord}
+      />
+
+      <Transition
+        show={!showWord}
+        enter="transition-opacity duration-75"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-150"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <AddWord refetch={refetch} />
+      </Transition>
+
+      <Transition
+        show={showWord}
+        enter="transition-opacity duration-75"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-150"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <WordDetails selectedWord={selectedWord} handelBack={handelBack} />
+      </Transition>
+    </>
+  );
+};
+
+export default MemorizeWords;

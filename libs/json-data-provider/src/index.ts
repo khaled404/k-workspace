@@ -1,1 +1,2 @@
-export * from './lib/json-data-provider';
+export * from './lib/projects';
+export * from './lib/words';

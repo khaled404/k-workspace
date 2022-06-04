@@ -1,1 +1,1 @@
-export { default as MemorizeWords } from './lib/memorize-words';
+export { default as MemorizeWords } from './lib';
