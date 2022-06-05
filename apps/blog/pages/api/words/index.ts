@@ -4,13 +4,16 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default function getWords(req: NextApiRequest, res: NextApiResponse) {
   const { method, body } = req;
+  try {
+    if (method === 'POST') {
+      const newWord = JSON.parse(body);
+      addNewWord(newWord);
+      return res.status(200).json({ massage: 'added successfully' });
+    }
+    const data = getAllWords();
 
-  if (method === 'PUT') {
-    const newWord = JSON.parse(body);
-    addNewWord(newWord);
-    return res.status(200).json({ massage: 'added successfully' });
+    res.status(200).json({ data });
+  } catch (error) {
+    res.status(500).json({ error });
   }
-  const data = getAllWords();
-
-  res.status(200).json({ data });
 }

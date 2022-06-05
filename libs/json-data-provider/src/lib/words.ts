@@ -4,10 +4,10 @@ import fs from 'fs';
 import { rootPath } from '@k-workspace/utils';
 
 const DIR = 'words';
-const PATH = rootPath('/data/words/words.json');
+const PATH = '/data/words/words.json';
 
 const getAllWords = () => {
-  const data = getFileParser<IWordsData[]>(DIR, 'words');
+  const data = getFileParser<IWordsData[]>(DIR, 'words', true);
 
   return data;
 };

@@ -13,8 +13,8 @@ const nextConfig = {
   env: {
     baseUrl:
       process.env.NODE_ENV === 'development'
-        ? 'http://localhost:4200/api/'
-        : 'https://k-workspace.vercel.app/api/',
+        ? 'http://localhost:4200/api'
+        : 'https://k-workspace.vercel.app/api',
   },
 };
 

@@ -19,7 +19,7 @@ const initialValues = { word: '', image: '', sentences: [sentencesValues] };
 
 const addWord = async (body: any) => {
   const data = await httpDriver(WORD_API_PATH, {
-    method: 'PUT',
+    method: 'POST',
     body: JSON.stringify(body),
   });
   return data;
