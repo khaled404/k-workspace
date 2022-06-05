@@ -1,0 +1,14 @@
+[
+  {
+    "word": "search",
+    "id": 1,
+    "image": "https://www.clarin.eu/sites/default/files/styles/max_325x325/public/icon-services-fcs.png?itok=hK3xStuy",
+    "sentences": []
+  },
+  {
+    "word": "dog",
+    "image": "https://cdn.britannica.com/49/161649-050-3F458ECF/Bernese-mountain-dog-grass.jpg",
+    "sentences": [],
+    "id": 2
+  }
+]
