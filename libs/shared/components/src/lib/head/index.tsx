@@ -4,7 +4,7 @@ import NextHead from 'next/head';
 
 type TMetaName = 'description' | 'author' | 'keywords' | 'revised';
 
-type TMeta = {
+export type TMeta = {
   name?: TMetaName;
   property?: 'og:image';
   content: string;
@@ -13,7 +13,7 @@ interface IHead {
   title?: string;
   meta?: TMeta[];
 }
-const Head: FC<IHead> = ({ children, title, meta }) => {
+export const Head: FC<IHead> = ({ children, title, meta }) => {
   return (
     <NextHead>
       <title>{title}</title>
@@ -25,5 +25,3 @@ const Head: FC<IHead> = ({ children, title, meta }) => {
     </NextHead>
   );
 };
-
-export { Head, TMeta };
