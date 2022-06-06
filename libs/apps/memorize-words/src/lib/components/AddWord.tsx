@@ -1,9 +1,10 @@
+import type { TState } from '@k-workspace/types';
 import { Transition } from '@headlessui/react';
 import { PlusIcon } from '@heroicons/react/solid';
 import { FC, useState } from 'react';
 import AddWordForm from './AddWordForm';
 
-const AddWord: FC<{ refetch: () => void }> = ({ refetch }) => {
+const AddWord: FC<{ setData: TState }> = ({ setData }) => {
   const [showAddNew, setShowAddNew] = useState(false);
   return (
     <>
@@ -16,7 +17,7 @@ const AddWord: FC<{ refetch: () => void }> = ({ refetch }) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <div className="text-center py-24 pb-80">
+        <div className="text-center py-24 pb-[27rem]">
           <svg
             className="mx-auto h-12 w-12 text-gray-400"
             fill="none"
@@ -60,7 +61,7 @@ const AddWord: FC<{ refetch: () => void }> = ({ refetch }) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <AddWordForm setShowAddNew={setShowAddNew} refetch={refetch} />
+        <AddWordForm setShowAddNew={setShowAddNew} setData={setData} />
       </Transition>
     </>
   );

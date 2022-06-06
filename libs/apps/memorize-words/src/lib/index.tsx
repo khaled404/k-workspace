@@ -24,7 +24,7 @@ const MemorizeWords: FC<MemorizeWordsProps> = () => {
   const {
     data: words,
     isLoading,
-    refetch,
+    setData,
   } = useQuery<IWordsData[]>(getAllWords);
 
   const handelSelectedWord = (value: IWordsData) => {
@@ -33,7 +33,9 @@ const MemorizeWords: FC<MemorizeWordsProps> = () => {
   };
   const handelBack = () => {
     setShowWord(false);
-    setSelectedWord(INITIAL_WORD_VALUES);
+    setTimeout(() => {
+      setSelectedWord(INITIAL_WORD_VALUES);
+    }, 200);
   };
   if (isLoading) return <LoadingScreen />;
 
@@ -54,7 +56,7 @@ const MemorizeWords: FC<MemorizeWordsProps> = () => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <AddWord refetch={refetch} />
+        <AddWord setData={setData} />
       </Transition>
 
       <Transition

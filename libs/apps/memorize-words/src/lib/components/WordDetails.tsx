@@ -26,34 +26,36 @@ const WordDetails: FC<IWordDetails> = ({ selectedWord, handelBack }) => {
           </div>
 
           <section aria-labelledby="information-heading" className="mt-4">
-            {selectedWord.sentences.length !== 0 && (
-              <h2 className="text-lg leading-6 font-medium text-gray-900 capitalize">
-                Sentences
-              </h2>
-            )}
-            <dl className="mt-4 space-y-6 capitalize">
-              {selectedWord.sentences.map((item: TSentence) => (
-                <>
-                  <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt className="text-sm font-medium text-gray-500">
-                      sentence
-                    </dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                      {item.sentence}
-                    </dd>
-                  </div>
+            {selectedWord.sentences[0].sentence.length !== 0 && (
+              <>
+                <h2 className="text-lg leading-6 font-medium text-gray-900 capitalize">
+                  Sentences
+                </h2>
+                <dl className="mt-4 space-y-6 capitalize">
+                  {selectedWord.sentences.map((item: TSentence) => (
+                    <div key={item._id}>
+                      <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt className="text-sm font-medium text-gray-500">
+                          sentence
+                        </dt>
+                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                          {item.sentence}
+                        </dd>
+                      </div>
 
-                  <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt className="text-sm font-medium text-gray-500">
-                      translations
-                    </dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                      {item.translations}
-                    </dd>
-                  </div>
-                </>
-              ))}
-            </dl>
+                      <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt className="text-sm font-medium text-gray-500">
+                          translations
+                        </dt>
+                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                          {item.translations}
+                        </dd>
+                      </div>
+                    </div>
+                  ))}
+                </dl>
+              </>
+            )}
           </section>
         </div>
 

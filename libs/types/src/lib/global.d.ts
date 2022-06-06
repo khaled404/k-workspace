@@ -1,4 +1,4 @@
-type TState = <T>(oldState?: T | unknown) => T | unknown;
+type TState<T = unknown> = Dispatch<SetStateAction<T | undefined>>;
 type TInput = React.ChangeEvent<HTMLInputElement>;
 type TSubmit = React.FormEvent<HTMLFormElement>;
 

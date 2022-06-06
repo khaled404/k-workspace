@@ -1,13 +1,13 @@
 export interface IWordsData {
   word: string;
-  id: number;
+  _id: number;
   image: string;
   sentences: TSentence[];
 }
 
 type TSentence = {
   sentence: string;
-  id: number;
+  _id: number;
   translations: string;
 };
 

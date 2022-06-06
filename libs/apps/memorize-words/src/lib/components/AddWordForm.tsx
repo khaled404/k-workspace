@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { PlusSmIcon, TrashIcon } from '@heroicons/react/outline';
-import type { TState } from '@k-workspace/types';
+import type { IWordsData, TState } from '@k-workspace/types';
 import { httpDriver, useForm } from '@k-workspace/utils';
 import type { FC } from 'react';
 import { WORD_API_PATH } from '../constant';
 
 interface IAddWordForm {
   setShowAddNew: TState;
-  refetch: () => void;
+  setData: TState;
 }
 
 const sentencesValues = {
@@ -17,15 +17,18 @@ const sentencesValues = {
 
 const initialValues = { word: '', image: '', sentences: [sentencesValues] };
 
-const addWord = async (body: any) => {
-  const data = await httpDriver(WORD_API_PATH, {
-    method: 'POST',
-    body: JSON.stringify(body),
-  });
-  return data;
+const addWord = async (body: any): Promise<IWordsData> => {
+  const { wordCreated } = await httpDriver<{ wordCreated: IWordsData }>(
+    WORD_API_PATH,
+    {
+      method: 'POST',
+      body: JSON.stringify(body),
+    }
+  );
+  return wordCreated;
 };
 
-const AddWordForm: FC<IAddWordForm> = ({ setShowAddNew, refetch }) => {
+const AddWordForm: FC<IAddWordForm> = ({ setShowAddNew, setData }) => {
   const {
     handelChange,
     handelChangeArray,
@@ -35,10 +38,10 @@ const AddWordForm: FC<IAddWordForm> = ({ setShowAddNew, refetch }) => {
     removeFieldArray,
   } = useForm<typeof initialValues>({
     initialValues: initialValues,
-    onSubmit: (values) => {
-      addWord(values);
+    onSubmit: async (values) => {
+      const wordCreated = await addWord(values);
+      setData((old: IWordsData[] = []) => [...old, wordCreated]);
       setShowAddNew(false);
-      refetch();
     },
   });
 

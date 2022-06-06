@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import type { TState } from '@k-workspace/types';
 import { useEffect, useRef, useState } from 'react';
 
 export type TQuery<T> = {
@@ -8,6 +9,7 @@ export type TQuery<T> = {
   errorMessage?: string;
   data?: T;
   refetch: () => void;
+  setData: TState<T>;
 };
 type TOptions = {
   enabled?: boolean;
@@ -62,6 +64,7 @@ export const useQuery = <T>(
     status,
     errorMessage,
     data,
+    setData,
     refetch,
   };
 };
