@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "imagePath": "https://tailwindui.com/img/ecommerce-images/product-page-05-related-product-01.jpg",
+    "imagePath": "/images/eisenhower-matrix.png",
     "slug": "EisenhowerMatrix",
     "name": "eisenhower-matrix",
     "description": "The Eisenhower Matrix is a task management tool that helps you organize and prioritize tasks by urgency and importance. Using the tool, you’ll divide your tasks into four boxes based on the tasks you’ll do first, the tasks you’ll schedule for later, the tasks you’ll delegate, and the tasks you’ll delete. In this piece, we’ll explain how to set up an Eisenhower Matrix and provide tips for task prioritization",
@@ -12,7 +12,7 @@
   },
   {
     "id": 2,
-    "imagePath": "https://tailwindui.com/img/ecommerce-images/product-page-05-related-product-01.jpg",
+    "imagePath": "/images/memorize-words.png",
     "slug": "MemorizeWords",
     "description": "An app to memorize all the information about the words that I always forget and quickly I get that word by searching the app I will use this app to learn English and memorize the words I learned to get it at another time",
     "name": "memorize-words",

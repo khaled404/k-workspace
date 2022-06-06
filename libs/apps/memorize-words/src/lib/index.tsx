@@ -1,12 +1,13 @@
 import { Transition } from '@headlessui/react';
 import { LoadingScreen } from '@k-workspace/shared/ui';
 import type { IWordsData } from '@k-workspace/types';
-import { httpDriver, useQuery } from '@k-workspace/utils';
+import { httpDriver } from '@k-workspace/utils';
 import { FC, useState } from 'react';
 import AddWord from './components/AddWord';
 import Search from './components/Search';
 import WordDetails from './components/WordDetails';
 import { INITIAL_WORD_VALUES, WORD_API_PATH } from './constant';
+import { useQuery } from '@k-workspace/shared/hooks';
 
 /* eslint-disable-next-line */
 interface MemorizeWordsProps {}

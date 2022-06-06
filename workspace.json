@@ -7,6 +7,52 @@
     "blog-e2e": "apps/blog-e2e",
     "json-data-provider": "libs/json-data-provider",
     "markdown": "libs/markdown",
+    "shared-components": {
+      "root": "libs/shared/components",
+      "sourceRoot": "libs/shared/components/src",
+      "projectType": "library",
+      "tags": [],
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/shared/components/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/components"],
+          "options": {
+            "jestConfig": "libs/shared/components/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-hooks": {
+      "root": "libs/shared/hooks",
+      "sourceRoot": "libs/shared/hooks/src",
+      "projectType": "library",
+      "tags": [],
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/shared/hooks/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/hooks"],
+          "options": {
+            "jestConfig": "libs/shared/hooks/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "shared-svg": {
       "root": "libs/shared/svg",
       "sourceRoot": "libs/shared/svg/src",

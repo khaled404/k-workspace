@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { PlusSmIcon, TrashIcon } from '@heroicons/react/outline';
 import type { IWordsData, TState } from '@k-workspace/types';
-import { httpDriver, useForm } from '@k-workspace/utils';
+import { httpDriver } from '@k-workspace/utils';
+import { useForm } from '@k-workspace/shared/hooks';
 import type { FC } from 'react';
 import { WORD_API_PATH } from '../constant';
 
