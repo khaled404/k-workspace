@@ -15,6 +15,9 @@ const nextConfig = {
       process.env.NODE_ENV === 'development'
         ? 'http://localhost:4200/api'
         : 'https://k-workspace.vercel.app/api',
+
+    mongodburl:
+      'mongodb+srv://khaled:XM8.Gff5tqTt8*m@cluster0.gzzx2.mongodb.net/blog?retryWrites=true&w=majority',
   },
 };
 
