@@ -8,7 +8,7 @@ const getProjects = (): TProject[] => {
   return data.filter((item) => item.published);
 };
 
-const getSingleProject = (slug?: string): TProject => {
+const getSingleProject = (slug: string) => {
   return getProjects().filter((item) => item.slug === slug)[0];
 };
 

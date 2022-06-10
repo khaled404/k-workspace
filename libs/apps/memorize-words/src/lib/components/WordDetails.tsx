@@ -26,7 +26,7 @@ const WordDetails: FC<IWordDetails> = ({ selectedWord, handelBack }) => {
           </div>
 
           <section aria-labelledby="information-heading" className="mt-4">
-            {selectedWord.sentences[0].sentence.length !== 0 && (
+            {selectedWord?.sentences?.[0]?.sentence?.length !== 0 && (
               <>
                 <h2 className="text-lg leading-6 font-medium text-gray-900 capitalize">
                   Sentences

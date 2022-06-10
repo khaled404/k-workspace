@@ -18,7 +18,6 @@ const Search: FC<ISearch> = ({ words, selectedWord, handelSelectedWord }) => {
       : words?.filter((person) => {
           return person.word.toLowerCase().includes(query.toLowerCase());
         });
-  console.log(filteredWords);
 
   return (
     <Combobox as="div" value={selectedWord} onChange={handelSelectedWord}>

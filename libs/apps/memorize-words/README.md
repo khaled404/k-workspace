@@ -1,6 +1,6 @@
 # MEMORIZE WORDS
 
-An app to memorize all the information about the words that I always forget  and quickly I get that word by searching the app I will use this app to learn English and memorize the words I learned to get it at another time
+An app to memorize all the information about the words that I always forget and quickly I get that word by searching the app I will use this app to learn English and memorize the words I learned to get it at another time
 
 ## Features
 

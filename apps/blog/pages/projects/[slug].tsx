@@ -34,7 +34,7 @@ const ProjectDetails = ({ project }: IProjectDetails) => {
     },
     {
       name: 'keywords',
-      content: project.tags.join(', '),
+      content: project.tags.join(' ,'),
     },
     {
       name: 'revised',
@@ -55,10 +55,11 @@ const ProjectDetails = ({ project }: IProjectDetails) => {
 };
 export default ProjectDetails;
 
-export const getStaticProps: GetStaticProps<IProjectDetails> = async ({
-  params,
-}) => {
-  const project = getSingleProject(params.slug as string);
+export const getStaticProps: GetStaticProps<
+  IProjectDetails,
+  { slug: string }
+> = async ({ params }) => {
+  const project = getSingleProject(params.slug);
   return {
     props: {
       project,
