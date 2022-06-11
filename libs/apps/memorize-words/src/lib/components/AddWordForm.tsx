@@ -5,13 +5,18 @@ import { useForm, useMutation } from '@k-workspace/shared/hooks';
 import { addNewWord } from '../requests';
 import { useWords } from '../context/words';
 import { INITIAL_WORD_VALUES, INITIAL_SENTENCES_VALUES } from '../constant';
+import { useNotifications } from '@k-workspace/shared/components';
 
 const AddWordForm = () => {
   const { addNewWordHandler, navigate } = useWords();
-
+  const { success, error } = useNotifications();
   const { mutate: addWordMutate } = useMutation<IWordsData>(addNewWord, {
     onSuccess: (data: any) => {
       addNewWordHandler(data);
+      success('Successfully saved!', 'Anyone can now view this word.');
+    },
+    onError: ({ data }) => {
+      error(data?.error);
     },
   });
 

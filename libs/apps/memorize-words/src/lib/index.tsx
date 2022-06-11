@@ -1,11 +1,14 @@
+import { NotificationsProvider } from '@k-workspace/shared/components';
 import App from './app';
 import { WordsProvider } from './context/words';
 
 const MemorizeWords = () => {
   return (
-    <WordsProvider>
-      <App />
-    </WordsProvider>
+    <NotificationsProvider>
+      <WordsProvider>
+        <App />
+      </WordsProvider>
+    </NotificationsProvider>
   );
 };
 

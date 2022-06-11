@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react';
 import { Transition } from '@headlessui/react';
 
-/* eslint-disable-next-line */
 interface SwitchTransitionProps<TPages> {
   currentPage: TPages;
   name: TPages;
@@ -16,7 +15,7 @@ export const SwitchTransition = <TPages,>({
   return (
     <Transition
       show={currentPage === name}
-      enter="transition-opacity duration-75"
+      enter="transition-opacity duration-700"
       enterFrom="opacity-0"
       enterTo="opacity-100"
       leave="transition-opacity duration-150"

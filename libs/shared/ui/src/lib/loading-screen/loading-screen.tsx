@@ -6,7 +6,7 @@ export interface LoadingScreenProps {}
 export function LoadingScreen(props: LoadingScreenProps) {
   return (
     <div className="inset-full flex items-center justify-center py-52">
-      <LoadingCircle className="w-14 h-1w-14" />
+      <LoadingCircle className="w-14 h-1w-14 text-indigo-500" />
     </div>
   );
 }
