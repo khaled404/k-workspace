@@ -1,22 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { PlusSmIcon, TrashIcon } from '@heroicons/react/outline';
-import type { IWordsData, TState } from '@k-workspace/types';
-import { useForm } from '@k-workspace/shared/hooks';
-import type { FC } from 'react';
+import type { IWordsData } from '@k-workspace/types';
+import { useForm, useMutation } from '@k-workspace/shared/hooks';
+import { addNewWord } from '../requests';
+import { useWords } from '../context/words';
+import { INITIAL_WORD_VALUES, INITIAL_SENTENCES_VALUES } from '../constant';
 
-interface IAddWordForm {
-  addWordMutate: (body: IWordsData) => void;
-  setShowAddNew: TState;
-}
+const AddWordForm = () => {
+  const { addNewWordHandler, navigate } = useWords();
 
-const sentencesValues = {
-  sentence: '',
-  translations: '',
-};
+  const { mutate: addWordMutate } = useMutation<IWordsData>(addNewWord, {
+    onSuccess: (data: any) => {
+      addNewWordHandler(data);
+    },
+  });
 
-const initialValues = { word: '', image: '', sentences: [sentencesValues] };
-
-const AddWordForm: FC<IAddWordForm> = ({ addWordMutate, setShowAddNew }) => {
   const {
     handelChange,
     handelChangeArray,
@@ -25,7 +23,7 @@ const AddWordForm: FC<IAddWordForm> = ({ addWordMutate, setShowAddNew }) => {
     addFieldArray,
     removeFieldArray,
   } = useForm<IWordsData>({
-    initialValues: initialValues,
+    initialValues: INITIAL_WORD_VALUES,
     onSubmit: async (values) => {
       addWordMutate(values);
     },
@@ -93,7 +91,7 @@ const AddWordForm: FC<IAddWordForm> = ({ addWordMutate, setShowAddNew }) => {
               </h3>
             </div>
             {values.sentences.map(
-              (item: typeof sentencesValues, index: number) => (
+              (item: typeof INITIAL_SENTENCES_VALUES, index: number) => (
                 <div
                   key={index}
                   className="grid grid-cols-1 gap-y-4 gap-x-4 sm:grid-cols-6 col-span-6"
@@ -165,7 +163,7 @@ const AddWordForm: FC<IAddWordForm> = ({ addWordMutate, setShowAddNew }) => {
             <div className="flex justify-end">
               <button
                 onClick={() => {
-                  addFieldArray('sentences', sentencesValues);
+                  addFieldArray('sentences', INITIAL_SENTENCES_VALUES);
                 }}
                 type="button"
                 className="inline-flex items-center p-1 border border-transparent rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -182,7 +180,7 @@ const AddWordForm: FC<IAddWordForm> = ({ addWordMutate, setShowAddNew }) => {
           <button
             type="button"
             className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            onClick={() => setShowAddNew(false)}
+            onClick={() => navigate('addWord')}
           >
             Cancel
           </button>

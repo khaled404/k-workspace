@@ -10,7 +10,7 @@ export type TMutation<T> = {
   errorMessage?: string;
   data?: T;
   setData: TState<T>;
-  mutate: () => void;
+  mutate: (body?: T) => void;
 };
 type TOptions = {
   onSuccess?: <T>(data: TMutation<T>['data']) => void | undefined;

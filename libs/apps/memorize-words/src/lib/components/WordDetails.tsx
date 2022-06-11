@@ -1,17 +1,13 @@
-import type { FC } from 'react';
-import type { IWordsData, TSentence, TState } from '@k-workspace/types';
+import type { TSentence } from '@k-workspace/types';
 import { ClipboardIcon } from '@heroicons/react/outline';
+import { useWords } from '../context/words';
 
-interface IWordDetails {
-  selectedWord: IWordsData;
-  handelBack: () => void;
-}
+const WordDetails = () => {
+  const { selectedWord, navigate } = useWords();
 
-const WordDetails: FC<IWordDetails> = ({ selectedWord, handelBack }) => {
   return (
     <div className="bg-white">
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
-        {/* Product details */}
         <div className="lg:max-w-lg lg:self-end">
           <div
             className="py-4 border-b border-gray-200 flex items-center space-x-3"
@@ -68,8 +64,6 @@ const WordDetails: FC<IWordDetails> = ({ selectedWord, handelBack }) => {
             />
           </div>
         </div>
-
-        {/* Product form */}
         <div className="mt-10 lg:max-w-lg lg:col-start-1 lg:row-start-2 lg:self-start">
           <section aria-labelledby="options-heading">
             <div className="mt-10">
@@ -86,7 +80,7 @@ const WordDetails: FC<IWordDetails> = ({ selectedWord, handelBack }) => {
             <button
               type="button"
               className="w-full mt-5 bg-white border border-gray-300 rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              onClick={handelBack}
+              onClick={() => navigate('addWord', true)}
             >
               Cancel
             </button>

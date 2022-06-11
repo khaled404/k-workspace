@@ -1,15 +1,11 @@
-import type { FC } from 'react';
-import type { IWordsData } from '@k-workspace/types';
 import { useState } from 'react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 import { Combobox } from '@headlessui/react';
 import { classNames } from '@k-workspace/utils';
-interface ISearch {
-  words: IWordsData[];
-  selectedWord: IWordsData;
-  handelSelectedWord: (value: IWordsData) => void;
-}
-const Search: FC<ISearch> = ({ words, selectedWord, handelSelectedWord }) => {
+import { useWords } from '../context/words';
+
+const Search = () => {
+  const { words, handelSelectedWord, selectedWord } = useWords();
   const [query, setQuery] = useState('');
 
   const filteredWords =
