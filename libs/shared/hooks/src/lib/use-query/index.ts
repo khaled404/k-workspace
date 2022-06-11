@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
 import type { TState } from '@k-workspace/types';
 import { useEffect, useRef, useState } from 'react';
@@ -42,9 +43,9 @@ export const useQuery = <T>(
       setStatus('loading');
       ref
         .current?.()
-        .then((data) => {
-          setData(data);
-          onSuccess?.(data);
+        .then((data: any) => {
+          setData(data?.data);
+          onSuccess?.(data?.data);
           setStatus('done');
         })
         .catch((error) => {
