@@ -1,11 +1,21 @@
-import type { TState } from '@k-workspace/types';
+import type { IWordsData, TState } from '@k-workspace/types';
 import { Transition } from '@headlessui/react';
 import { PlusIcon } from '@heroicons/react/solid';
 import { FC, useState } from 'react';
 import AddWordForm from './AddWordForm';
+import { useMutation } from '@k-workspace/shared/hooks';
+import { addNewWord } from '../requests';
 
 const AddWord: FC<{ setData: TState }> = ({ setData }) => {
   const [showAddNew, setShowAddNew] = useState(false);
+
+  const { mutate: addWordMutate } = useMutation<IWordsData>(addNewWord, {
+    onSuccess: (data) => {
+      setData((old: IWordsData[] = []) => [...old, data]);
+      setShowAddNew(false);
+    },
+  });
+
   return (
     <>
       <Transition
@@ -61,7 +71,10 @@ const AddWord: FC<{ setData: TState }> = ({ setData }) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <AddWordForm setShowAddNew={setShowAddNew} setData={setData} />
+        <AddWordForm
+          addWordMutate={addWordMutate}
+          setShowAddNew={setShowAddNew}
+        />
       </Transition>
     </>
   );

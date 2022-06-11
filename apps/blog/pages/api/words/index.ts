@@ -1,23 +1,21 @@
-import connectDB from '../../../middleware/mongodb';
-import Words from '../../../models/words';
+import { sendResponse } from '@k-workspace/utils';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import connectDB from '../../../middleware/mongodb';
+import { addNewWord, getWords } from './controllers';
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { method, body } = req;
-  try {
-    if (method === 'POST') {
-      const newWord = JSON.parse(body);
-      const words = new Words(newWord);
-      const wordCreated = await words.save();
-      return res
-        .status(200)
-        .json({ massage: 'added successfully', wordCreated });
+  switch (method) {
+    case 'POST': {
+      const data = await addNewWord(body);
+      return sendResponse(res, data);
     }
-    const data = await Words.find();
-
-    return res.status(200).json({ data });
-  } catch (error) {
-    res.status(500).json({ error });
+    case 'GET': {
+      const data = await getWords();
+      return sendResponse(res, data);
+    }
+    default:
+      res.status(405).json('Method not allowed');
   }
 }
 export default connectDB(handler);

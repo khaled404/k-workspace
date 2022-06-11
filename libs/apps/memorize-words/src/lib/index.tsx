@@ -1,21 +1,16 @@
 import { Transition } from '@headlessui/react';
 import { LoadingScreen } from '@k-workspace/shared/ui';
 import type { IWordsData } from '@k-workspace/types';
-import { httpDriver } from '@k-workspace/utils';
 import { FC, useState } from 'react';
 import AddWord from './components/AddWord';
 import Search from './components/Search';
 import WordDetails from './components/WordDetails';
-import { INITIAL_WORD_VALUES, WORD_API_PATH } from './constant';
+import { INITIAL_WORD_VALUES } from './constant';
 import { useQuery } from '@k-workspace/shared/hooks';
+import { getAllWords } from './requests';
 
 /* eslint-disable-next-line */
 interface MemorizeWordsProps {}
-
-const getAllWords = async () => {
-  const { data } = await httpDriver<{ data: IWordsData[] }>(WORD_API_PATH);
-  return data;
-};
 
 const MemorizeWords: FC<MemorizeWordsProps> = () => {
   const [showWord, setShowWord] = useState(false);

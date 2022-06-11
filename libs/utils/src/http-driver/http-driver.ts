@@ -1,11 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { THttpDriver } from './http-driver-types';
 
-const httpDriver = async <T = unknown>(
-  path = '',
-  options?: THttpDriver
-): Promise<T> => {
+const httpDriver = async (path = '', options?: THttpDriver): Promise<any> => {
   const response = await fetch(process.env['baseUrl'] + path, options);
-  return await response.json();
+  const { data } = await response.json();
+  return { data, status: response?.status };
 };
 
 export { httpDriver };

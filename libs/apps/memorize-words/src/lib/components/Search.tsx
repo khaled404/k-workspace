@@ -16,7 +16,7 @@ const Search: FC<ISearch> = ({ words, selectedWord, handelSelectedWord }) => {
     query === ''
       ? words
       : words?.filter((person) => {
-          return person.word.toLowerCase().includes(query.toLowerCase());
+          return person?.word?.toLowerCase().includes(query.toLowerCase());
         });
 
   return (
@@ -40,7 +40,7 @@ const Search: FC<ISearch> = ({ words, selectedWord, handelSelectedWord }) => {
           <Combobox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
             {filteredWords?.map((word) => (
               <Combobox.Option
-                key={word._id}
+                key={word?.id}
                 value={word}
                 className={({ active }) =>
                   classNames(
@@ -53,7 +53,7 @@ const Search: FC<ISearch> = ({ words, selectedWord, handelSelectedWord }) => {
                   <>
                     <div className="flex items-center">
                       <img
-                        src={word.image}
+                        src={word?.image}
                         alt=""
                         className="h-8 w-8 flex-shrink-0 rounded-full"
                       />
@@ -63,7 +63,7 @@ const Search: FC<ISearch> = ({ words, selectedWord, handelSelectedWord }) => {
                           selected && 'font-semibold'
                         )}
                       >
-                        {word.word}
+                        {word?.word}
                       </span>
                     </div>
 
