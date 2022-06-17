@@ -19,3 +19,12 @@ export const addNewWord = async (body: string) => {
 export const updateWords = () => {
   return 'update';
 };
+export const deleteWords = async (body: string) => {
+  const { id } = JSON.parse(body);
+  try {
+    await Words.findOneAndRemove({ _id: id });
+    return 'successfully removed';
+  } catch (error) {
+    return sendError(error);
+  }
+};

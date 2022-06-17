@@ -13,3 +13,11 @@ export const addNewWord = async <T = unknown>(body: T): Promise<T> => {
   });
   return data;
 };
+
+export const deleteWord = async (body: { id: string }): Promise<unknown> => {
+  const data = await httpDriver(routes.WORD_API_PATH, {
+    method: 'DELETE',
+    body: JSON.stringify(body),
+  });
+  return data;
+};

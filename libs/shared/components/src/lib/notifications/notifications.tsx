@@ -8,12 +8,12 @@ import { XIcon } from '@heroicons/react/solid';
 import { TState } from '@k-workspace/types';
 import { INotificationProps } from '.';
 
-export interface NotificationsProps extends INotificationProps {
+interface NotificationsProps extends INotificationProps {
   show: boolean;
   setShow: TState;
 }
 
-export const Notifications: FC<NotificationsProps> = ({
+const Notifications: FC<NotificationsProps> = ({
   show,
   setShow,
   massage,
@@ -78,3 +78,4 @@ export const Notifications: FC<NotificationsProps> = ({
     </div>
   );
 };
+export default Notifications;

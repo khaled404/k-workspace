@@ -1,9 +1,38 @@
-import type { TSentence } from '@k-workspace/types';
+import type { IWordsData, TSentence } from '@k-workspace/types';
+import { useEventListener, useMutation } from '@k-workspace/shared/hooks';
 import { ClipboardIcon } from '@heroicons/react/outline';
 import { useWords } from '../context/words';
+import { useModal } from '@k-workspace/shared/components';
+import { deleteWord } from '../requests';
 
 const WordDetails = () => {
-  const { selectedWord, navigate } = useWords();
+  const { selectedWord, navigate, setWords } = useWords();
+  const { newModal } = useModal();
+
+  const { mutate: deleteMutate } = useMutation(deleteWord, {
+    onSuccess: () => {
+      navigate('addWord', true);
+      setWords((oldState: IWordsData[]) =>
+        oldState.filter((item: IWordsData) => item.id !== selectedWord.id)
+      );
+    },
+  });
+
+  useEventListener({
+    eventName: 'keydown',
+    handelEventListener: ({ key }) => {
+      if (key === 'Delete') {
+        newModal({
+          description: 'Do you want to delete the word?',
+          massage: 'Delete Word',
+          type: 'warning',
+          onAccept: () => {
+            deleteMutate({ id: selectedWord.id });
+          },
+        });
+      }
+    },
+  });
 
   return (
     <div className="bg-white">
@@ -28,14 +57,14 @@ const WordDetails = () => {
                   Sentences
                 </h2>
                 <dl className="mt-4 space-y-6 capitalize">
-                  {selectedWord.sentences.map((item: TSentence) => (
-                    <div key={item.id}>
+                  {selectedWord?.sentences?.map((item: TSentence) => (
+                    <div key={item?.id}>
                       <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">
                           sentence
                         </dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                          {item.sentence}
+                          {item?.sentence}
                         </dd>
                       </div>
 
@@ -44,7 +73,7 @@ const WordDetails = () => {
                           translations
                         </dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                          {item.translations}
+                          {item?.translations}
                         </dd>
                       </div>
                     </div>

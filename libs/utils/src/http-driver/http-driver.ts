@@ -4,7 +4,7 @@ import { THttpDriver } from './http-driver-types';
 const httpDriver = async (path = '', options?: THttpDriver): Promise<any> => {
   const response = await fetch(process.env['baseUrl'] + path, options);
   const responseJson = await response.json();
-  const data = responseJson?.data ? responseJson?.data : responseJson;
+  const data = responseJson ? responseJson : responseJson;
   return { data, status: response?.status };
 };
 

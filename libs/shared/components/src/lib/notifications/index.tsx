@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { createContext, FC, useContext, useMemo, useState } from 'react';
-import { Notifications } from './notifications';
+import Notifications from './notifications';
 
 type NotificationsContextType = {
   success: (massage: string, description?: string) => void;
@@ -54,7 +54,9 @@ const NotificationsProvider: FC = ({ children }): JSX.Element | null => {
 const useNotifications = (): NotificationsContextType => {
   const context = useContext(NotificationsContext);
   if (!context)
-    throw Error('useWords should be used within <NotificationsProvider />');
+    throw Error(
+      'useNotifications should be used within <NotificationsProvider />'
+    );
   return context;
 };
 

@@ -1,7 +1,7 @@
 import { sendResponse } from '@k-workspace/utils';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import connectDB from '../../../middleware/mongodb';
-import { addNewWord, getWords } from './controllers';
+import { addNewWord, deleteWords, getWords } from './controllers';
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { method, body } = req;
@@ -12,6 +12,10 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     }
     case 'GET': {
       const data = await getWords();
+      return sendResponse(res, data);
+    }
+    case 'DELETE': {
+      const data = await deleteWords(body);
       return sendResponse(res, data);
     }
     default:
