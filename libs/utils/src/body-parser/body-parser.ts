@@ -1,4 +1,4 @@
-type TBody = { [key: string]: unknown };
+import { TBody } from '@k-workspace/types';
 
 const bodyParser = (body: string | TBody): TBody | undefined => {
   if (!body) return undefined;
@@ -6,4 +6,4 @@ const bodyParser = (body: string | TBody): TBody | undefined => {
   return body;
 };
 
-export { bodyParser, TBody };
+export { bodyParser };

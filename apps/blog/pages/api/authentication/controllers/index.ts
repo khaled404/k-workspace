@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { convertToSchema, sendError, TBody } from '@k-workspace/utils';
+import type { TBody } from '@k-workspace/types';
+import { convertToSchema, sendError } from '@k-workspace/utils';
 import { sign } from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import User from '../models';

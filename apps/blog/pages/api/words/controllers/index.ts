@@ -1,5 +1,5 @@
-import { IWordsData } from '@k-workspace/types';
-import { convertToSchema, sendError, TBody } from '@k-workspace/utils';
+import type { IWordsData, TBody } from '@k-workspace/types';
+import { convertToSchema, sendError } from '@k-workspace/utils';
 import Words from '../models';
 
 export const getWords = async (): Promise<IWordsData[]> => {
