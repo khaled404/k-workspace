@@ -37,7 +37,7 @@ const ModalContainer: FC<IModal> = forwardRef(
             <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
           </Transition.Child>
 
-          <div className="fixed z-10 inset-0 overflow-y-auto">
+          <div className="fixed z-10 inset-0 overflow-y-auto transition-all">
             <div className="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -104,7 +104,7 @@ const Modal: FC<IModal> = ({
       ref={cancelButtonRef}
     >
       {isCustom ? (
-        renderCustom?.()
+        renderCustom?.(setOpen)
       ) : (
         <>
           <span className="bg-red-100 text-red-600 bg-green-100 text-green-600 bg-blue-100 text-blue-600 bg-red-600 bg-red-700 ring-red-500 bg-green-600 bg-green-700 ring-green-500 bg-blue-600 bg-blue-700 ring-blue-500" />

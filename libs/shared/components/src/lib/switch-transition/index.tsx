@@ -15,14 +15,14 @@ export const SwitchTransition = <TPages,>({
   return (
     <Transition
       show={currentPage === name}
-      enter="transition-opacity duration-700"
+      enter="transition-all duration-700"
       enterFrom="opacity-0"
       enterTo="opacity-100"
       leave="transition-opacity duration-150"
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
     >
-      {children}
+      {currentPage === name && children}
     </Transition>
   );
 };

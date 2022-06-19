@@ -1,16 +1,22 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import { getItem, LOCAL_STORAGE_KEYS } from '@k-workspace/utils';
 import Link from 'next/link';
 import { Fragment } from 'react';
 import navbar from '../../data/navbar';
 
 export type TNavLink = { name: string; href: string };
 
-export function Navbar() {
+export interface INavbar {
+  onChange: (type: string) => void;
+}
+
+export function Navbar({ onChange }: INavbar) {
   const { links } = navbar;
+  const user = getItem(LOCAL_STORAGE_KEYS.GET_USER);
   return (
-    <div className="relative bg-white overflow-hidden">
+    <div className="relative bg-white overflow-hidden flex items-center justify-between container mx-auto">
       <div className="relative pt-6  pb-6">
         <Popover>
           <nav
@@ -90,6 +96,28 @@ export function Navbar() {
           </Transition>
         </Popover>
       </div>
+      {!user ? (
+        <div className="flex items-center md:ml-12">
+          <button
+            onClick={() => onChange('login')}
+            className="text-base font-medium text-gray-500 hover:text-gray-900"
+          >
+            Sign in
+          </button>
+          <button
+            onClick={() => onChange('register')}
+            className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+          >
+            Sign up
+          </button>
+        </div>
+      ) : (
+        <span className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gray-500 select-none">
+          <span className="font-bold leading-none text-white font-mono">
+            {user?.name?.slice(0, 2)}
+          </span>
+        </span>
+      )}
     </div>
   );
 }

@@ -17,8 +17,8 @@ const RenderIcon = (props: { name: string; className: string }) => {
 
 export function Footer() {
   return (
-    <footer className="bg-white">
-      <div className="container mx-auto py-12 md:flex md:items-center md:justify-between lg:px-8">
+    <footer className="bg-white py-5 absolute bottom-0 w-full">
+      <div className="container mx-auto md:flex md:items-center md:justify-between lg:px-8">
         <div className="flex justify-center space-x-6 md:order-2">
           {footer?.social?.map((item: TSocial) => (
             <a

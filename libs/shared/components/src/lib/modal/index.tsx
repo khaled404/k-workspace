@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { TState } from '@k-workspace/types';
 import { createContext, FC, useContext, useMemo, useState } from 'react';
 import Modal from './modal';
 
@@ -10,7 +11,7 @@ export interface IModalProps {
   description?: string;
   onAccept?: () => void;
   onCancel?: () => void;
-  renderCustom?: () => JSX.Element;
+  renderCustom?: (setOpen: TState) => JSX.Element;
 }
 
 type ModalContextType = {

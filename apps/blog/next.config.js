@@ -18,6 +18,7 @@ const nextConfig = {
 
     mongodburl:
       'mongodb+srv://khaled:XM8.Gff5tqTt8*m@cluster0.gzzx2.mongodb.net/blog?retryWrites=true&w=majority',
+    secretToken: 'secretTokenA(Wu]`,s,86%ih4%xOET#sKG|W=b[SuperSecretToken',
   },
 };
 

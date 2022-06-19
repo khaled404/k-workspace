@@ -4,3 +4,4 @@ export * from './root-path/root-path';
 export * from './http-driver/http-driver';
 export * from './convert-to-schema/convert-to-schema';
 export * from './send-response/send-response';
+export * from './body-parser/body-parser';
