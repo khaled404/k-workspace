@@ -1,19 +1,14 @@
 import { bodyParser } from '@k-workspace/utils';
+import mongoose from 'mongoose';
 import jwtMiddleware from './jwtMiddleware';
-import connectDB from './mongodb';
 
 function apiHandler(handler) {
   return async (req, res) => {
-    connectDB(handler)(req, res);
-
-    const request = { ...req, body: bodyParser(req.body) };
-
-    try {
-      await jwtMiddleware(req, res);
-      await handler(request, res);
-    } catch (err) {
-      return res.status(500).end(err);
+    if (!mongoose.connections[0].readyState) {
+      mongoose.connect(process.env.mongodburl);
     }
+    jwtMiddleware(req, res);
+    return handler(req, res);
   };
 }
 
