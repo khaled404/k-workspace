@@ -16,7 +16,7 @@ const AddWordForm = () => {
       success('Successfully saved!', 'Anyone can now view this word.');
     },
     onError: ({ data }) => {
-      error(data?.error);
+      error(data?.errors);
     },
   });
 

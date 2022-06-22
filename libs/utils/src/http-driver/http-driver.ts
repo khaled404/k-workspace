@@ -7,6 +7,7 @@ const httpDriver = async (path = '', options?: THttpDriver): Promise<any> => {
     const response = await fetch(process.env['baseUrl'] + path, {
       ...options,
       headers: {
+        'Content-Type': 'application/json',
         authorization:
           `Bearer ${getItem(LOCAL_STORAGE_KEYS.GET_USER)?.token}` || '',
       },

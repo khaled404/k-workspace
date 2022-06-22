@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { createContext, FC, useContext, useMemo, useState } from 'react';
 import Notifications from './notifications';
+import { convertArrayToText } from '@k-workspace/utils';
 
 type NotificationsContextType = {
   success: (massage: string, description?: string) => void;
@@ -38,7 +39,8 @@ const NotificationsProvider: FC = ({ children }): JSX.Element | null => {
   const success = (massage: string, description?: string) => {
     showNotification(massage, description, 'success');
   };
-  const error = (massage: string, description?: string) => {
+  const error = (errors: any, description?: string) => {
+    const massage = Array.isArray(errors) ? convertArrayToText(errors) : errors;
     showNotification(massage, description, 'error');
   };
   const value = useMemo(() => ({ success, error }), []);

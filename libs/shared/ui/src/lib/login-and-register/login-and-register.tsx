@@ -83,7 +83,7 @@ const Login = ({ setOpen }: { setOpen: TState }) => {
       setOpen(false);
     },
     onError: ({ data }) => {
-      error('Something went wrong', data?.error);
+      error('Something went wrong', data?.errors);
     },
   });
 
@@ -169,7 +169,7 @@ const Register = ({ setTabs }: { setTabs: TState }) => {
       success('Register Successfully', 'Please login');
     },
     onError: ({ data }) => {
-      error('Something went wrong', data?.error);
+      error('Something went wrong', data?.errors);
     },
   });
 

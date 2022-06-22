@@ -1,4 +1,5 @@
 {
+  "root": "apps/blog",
   "sourceRoot": "apps/blog",
   "projectType": "application",
   "targets": {
@@ -18,8 +19,7 @@
       "executor": "@nrwl/next:server",
       "options": {
         "buildTarget": "blog:build",
-        "dev": true,
-        "proxyConfig": "apps/blog/proxy.conf.json"
+        "dev": true
       },
       "configurations": {
         "production": {
