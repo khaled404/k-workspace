@@ -35,7 +35,12 @@
       "default": false,
       "x-prompt": "application is published? default value will be false"
     },
-
+    "requireAuthentication": {
+      "type": "boolean",
+      "description": "application requires authentication?",
+      "default": false,
+      "x-prompt": "application requires authentication? default value will be false"
+    },
     "tags": {
       "type": "array",
       "description": "application tags",

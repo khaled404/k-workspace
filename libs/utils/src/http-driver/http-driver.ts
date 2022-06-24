@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { getItem, LOCAL_STORAGE_KEYS } from '../local-storage/local-storage';
+import { getCurrentUser } from '../local-storage/global-get-items';
 import { THttpDriver } from './http-driver-types';
 
 const httpDriver = async (path = '', options?: THttpDriver): Promise<any> => {
@@ -8,8 +8,7 @@ const httpDriver = async (path = '', options?: THttpDriver): Promise<any> => {
       ...options,
       headers: {
         'Content-Type': 'application/json',
-        authorization:
-          `Bearer ${getItem(LOCAL_STORAGE_KEYS.GET_USER)?.token}` || '',
+        Authorization: `Bearer ${getCurrentUser()?.token}` || '',
       },
     });
     const responseJson = await response.json();

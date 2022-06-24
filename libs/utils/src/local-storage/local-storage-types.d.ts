@@ -3,3 +3,12 @@ export type TLocalStorage<
 > = T;
 
 export type TStorage = Storage | undefined;
+
+export type TUser = {
+  token: string;
+  user: {
+    id: string;
+    name: string;
+    email: string;
+  };
+};

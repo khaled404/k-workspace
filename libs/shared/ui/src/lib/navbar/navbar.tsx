@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import { getItem, LOCAL_STORAGE_KEYS } from '@k-workspace/utils';
+import { getCurrentUser } from '@k-workspace/utils';
 import Link from 'next/link';
 import { Fragment } from 'react';
 import navbar from '../../data/navbar';
@@ -14,7 +14,9 @@ export interface INavbar {
 
 export function Navbar({ onChange }: INavbar) {
   const { links } = navbar;
-  const user = getItem(LOCAL_STORAGE_KEYS.GET_USER);
+
+  const user = getCurrentUser();
+
   return (
     <div className="relative bg-white overflow-hidden flex items-center justify-between container mx-auto">
       <div className="relative pt-6  pb-6">
@@ -114,7 +116,7 @@ export function Navbar({ onChange }: INavbar) {
       ) : (
         <span className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gray-500 select-none">
           <span className="font-bold leading-none text-white font-mono">
-            {user?.name?.slice(0, 2)}
+            {user?.user?.name?.slice(0, 2)}
           </span>
         </span>
       )}

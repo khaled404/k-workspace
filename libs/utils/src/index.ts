@@ -1,4 +1,5 @@
 export * from './local-storage/local-storage';
+export * from './local-storage/global-get-items';
 export * from './class-names/class-names';
 export * from './root-path/root-path';
 export * from './http-driver/http-driver';
