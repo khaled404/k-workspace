@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { createContext, FC, useContext, useMemo, useState } from 'react';
+import { createContext, useContext, useMemo, useState } from 'react';
 import Notifications from './notifications';
 import { convertArrayToText } from '@k-workspace/utils';
+import { FC, TProvider } from '@k-workspace/types';
 
 type NotificationsContextType = {
   success: (massage: string, description?: string) => void;
@@ -20,7 +21,7 @@ const NotificationsContext = createContext<NotificationsContextType | null>(
   null
 );
 
-const NotificationsProvider: FC = ({ children }): JSX.Element | null => {
+const NotificationsProvider = ({ children }: FC): TProvider => {
   const [notificationProps, setNotificationProps] =
     useState<INotificationProps | null>(null);
   const [show, setShow] = useState(false);

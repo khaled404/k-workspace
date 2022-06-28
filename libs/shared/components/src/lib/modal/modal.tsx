@@ -1,22 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { FC, forwardRef, Fragment, useRef } from 'react';
+import { forwardRef, Fragment, useRef } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import {
   ExclamationIcon,
   InformationCircleIcon,
   CheckIcon,
 } from '@heroicons/react/outline';
-import { TState } from '@k-workspace/types';
+import type { FC, TState } from '@k-workspace/types';
 import { IModalProps } from '.';
 
-interface IModal extends IModalProps {
+interface IModal extends IModalProps, FC {
   open: boolean;
   setOpen: TState;
   ref?: any;
 }
 
-const ModalContainer: FC<IModal> = forwardRef(
-  ({ open, setOpen, children }, ref: React.Ref<any>) => {
+const ModalContainer = forwardRef(
+  ({ open, setOpen, children }: IModal, ref: React.Ref<any>) => {
     return (
       <Transition.Root show={open} as={Fragment}>
         <Dialog
@@ -60,7 +60,7 @@ const ModalContainer: FC<IModal> = forwardRef(
   }
 );
 
-const Modal: FC<IModal> = ({
+const Modal = ({
   onAccept,
   onCancel,
   open,
@@ -69,7 +69,7 @@ const Modal: FC<IModal> = ({
   renderCustom,
   description,
   massage,
-}) => {
+}: IModal) => {
   const cancelButtonRef = useRef<any>(null);
   const isCustom = type === 'custom';
 

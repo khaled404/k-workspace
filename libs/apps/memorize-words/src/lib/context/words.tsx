@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import { IWordsData, TState } from '@k-workspace/types';
-import { createContext, FC, useContext, useMemo, useState } from 'react';
+import { FC, IWordsData, TProvider, TState } from '@k-workspace/types';
+import { createContext, useContext, useMemo, useState } from 'react';
 import { INITIAL_WORD_VALUES } from '../constant';
 import path from '../constant/path';
 
@@ -19,7 +19,7 @@ type WordsContextType = {
 
 const WordsContext = createContext<WordsContextType | null>(null);
 
-const WordsProvider: FC = ({ children }): JSX.Element | null => {
+const WordsProvider = ({ children }: FC): TProvider => {
   const [words, setWords] = useState<IWordsData[]>([]);
   const [currentPage, setCurrentPage] = useState<TPages>(path.ADD_WORD);
   const [selectedWord, setSelectedWord] =

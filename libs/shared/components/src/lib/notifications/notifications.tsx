@@ -1,4 +1,4 @@
-import { Fragment, FC } from 'react';
+import { Fragment } from 'react';
 import { Transition } from '@headlessui/react';
 import {
   CheckCircleIcon,
@@ -13,13 +13,13 @@ interface NotificationsProps extends INotificationProps {
   setShow: TState;
 }
 
-const Notifications: FC<NotificationsProps> = ({
+const Notifications = ({
   show,
   setShow,
   massage,
   type,
   description,
-}) => {
+}: NotificationsProps) => {
   const isError = type === 'error';
   return (
     <div

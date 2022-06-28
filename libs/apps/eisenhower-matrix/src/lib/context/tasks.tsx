@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { getItem, saveItem, LOCAL_STORAGE_KEYS } from '@k-workspace/utils';
-import { createContext, FC, useContext, useMemo, useState } from 'react';
+import { createContext, useContext, useMemo, useState } from 'react';
 import { TTasks } from './../types';
 import { INIT_DATA } from '../constant';
+import { FC, TProvider } from '@k-workspace/types';
 
 type TasksContextType = {
   tasks: TTasks[];
@@ -19,7 +20,7 @@ type TasksContextType = {
 
 const TasksContext = createContext<TasksContextType | null>(null);
 
-const TasksProvider: FC = ({ children }): JSX.Element | null => {
+const TasksProvider = ({ children }: FC): TProvider => {
   const [tasks, setTasks] = useState<TTasks[]>(
     getItem(LOCAL_STORAGE_KEYS.TASKS_LIST, INIT_DATA)
   );

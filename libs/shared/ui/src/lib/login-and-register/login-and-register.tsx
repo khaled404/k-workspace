@@ -11,7 +11,7 @@ import {
   LOCAL_STORAGE_KEYS,
   saveItem,
 } from '@k-workspace/utils';
-import { FC, useState } from 'react';
+import { useState } from 'react';
 
 export interface LoginAndRegisterProps {
   type: string;
@@ -262,10 +262,7 @@ const Register = ({ setTabs }: { setTabs: TState }) => {
   );
 };
 
-export const LoginAndRegister: FC<LoginAndRegisterProps> = ({
-  type,
-  setOpen,
-}) => {
+export const LoginAndRegister = ({ type, setOpen }: LoginAndRegisterProps) => {
   const [tabs, setTabs] = useState<TTabs>([
     { name: 'Sign in', current: type === 'login', key: 'login' },
     { name: 'Sign up', current: type === 'register', key: 'register' },

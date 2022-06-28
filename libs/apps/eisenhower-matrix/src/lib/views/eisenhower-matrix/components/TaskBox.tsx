@@ -1,4 +1,4 @@
-import { FC, Fragment, useState } from 'react';
+import { Fragment, useState } from 'react';
 import { classNames } from '@k-workspace/utils';
 import { Draggable } from 'react-beautiful-dnd';
 import { TTasks } from '../../../types';
@@ -25,7 +25,7 @@ const getItemStyle = (draggableStyle: React.CSSProperties | undefined) =>
     ...draggableStyle,
   } as React.CSSProperties);
 
-const TaskBox: FC<ITaskBox> = ({ item, rowIndex, index }) => {
+const TaskBox = ({ item, rowIndex, index }: ITaskBox) => {
   const { editTask, removeTask } = useTasks();
   const [isEditMode, setIsEditMode] = useState(false);
   const [task, setTask] = useState(item.task);

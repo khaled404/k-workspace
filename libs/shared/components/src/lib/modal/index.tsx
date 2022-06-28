@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { TState } from '@k-workspace/types';
-import { createContext, FC, useContext, useMemo, useState } from 'react';
+import { FC, TProvider, TState } from '@k-workspace/types';
+import { createContext, useContext, useMemo, useState } from 'react';
 import Modal from './modal';
 
 export type TStatus = 'success' | 'warning' | 'info' | 'custom';
@@ -20,7 +20,7 @@ type ModalContextType = {
 
 const ModalContext = createContext<ModalContextType | null>(null);
 
-const ModalProvider: FC = ({ children }): JSX.Element | null => {
+const ModalProvider = ({ children }: FC): TProvider => {
   const [open, setOpen] = useState(false);
   const [modalProps, setModalProps] = useState<IModalProps>({
     type: 'success',
