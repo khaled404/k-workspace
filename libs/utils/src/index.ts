@@ -7,3 +7,4 @@ export * from './convert-to-schema/convert-to-schema';
 export * from './send-response/send-response';
 export * from './body-parser/body-parser';
 export * from './convert-array-to-text/convert-array-to-text';
+export * from './date-converter/date-converter';

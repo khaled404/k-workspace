@@ -1,7 +1,7 @@
 import { FC, Fragment, useState } from 'react';
 import { classNames } from '@k-workspace/utils';
 import { Draggable } from 'react-beautiful-dnd';
-import { TTasks } from './../types';
+import { TTasks } from '../../../types';
 import useSound from 'use-sound';
 import { Menu, Transition } from '@headlessui/react';
 import {
@@ -9,7 +9,7 @@ import {
   DotsVerticalIcon,
   PencilIcon,
 } from '@heroicons/react/solid';
-import { useTasks } from '../context/tasks';
+import { useTasks } from '../../../context/tasks';
 
 interface ITaskBox {
   item: TTasks[0];
