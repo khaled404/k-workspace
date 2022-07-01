@@ -12,7 +12,7 @@ const Page = ({ children }: FC) => {
     });
   };
   return (
-    <div className="p-6">
+    <div>
       <Navbar onChange={openModal} />
       {children}
       <Footer />
