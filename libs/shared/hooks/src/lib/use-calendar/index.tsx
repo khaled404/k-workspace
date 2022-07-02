@@ -13,7 +13,6 @@ export const CALENDAR_VIEWS = {
   MONTH: 'MONTH',
   WEEK: 'WEEK',
   DAY: 'DAY',
-  YEAR: 'YEAR',
 } as const;
 
 export type TCalendarViews = keyof typeof CALENDAR_VIEWS;
@@ -49,7 +48,7 @@ const CalendarProvider = ({ children }: FC): TProvider => {
   const [week, setWeek] = useState<TCalendarData>();
   const [currentDate, setCurrentDate] = useState(new Date());
   const [currentView, setCurrentView] = useState<TCalendarViews>(
-    CALENDAR_VIEWS.WEEK
+    CALENDAR_VIEWS.DAY
   );
   const currentYear = currentDate.getFullYear();
   const currentMonthIndex = currentDate.getMonth();
@@ -159,6 +158,7 @@ const CalendarProvider = ({ children }: FC): TProvider => {
   };
   const changeCalendarView = (view: TCalendarViews) => {
     setCurrentView(view);
+    currentMothHandler();
   };
 
   useEffect(() => {

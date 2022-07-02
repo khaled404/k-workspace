@@ -6,7 +6,7 @@ const WeekView = () => {
   const { week } = useCalendar();
 
   return (
-    <div className="flex h-full flex-col z-0">
+    <div className="flex  h-[80vh] flex-col z-0">
       <div className="flex flex-auto flex-col overflow-auto bg-white">
         <div className="flex max-w-full flex-none flex-col sm:max-w-none md:max-w-full">
           <div className="sticky top-0 z-30 flex-none bg-white shadow ring-1 ring-black ring-opacity-5 sm:pr-8">
