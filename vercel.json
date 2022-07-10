@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "builds": [
+    {
+      "src": "dist/apps/api/main.js",
+      "use": "@now/node"
+    }
+  ]
+}
