@@ -13,10 +13,11 @@
 .project
 .classpath
 .c9/
-*.launch
+*.launch`
 .settings/
 *.sublime-workspace
-
+/yarn.lock
+/package.lock
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
