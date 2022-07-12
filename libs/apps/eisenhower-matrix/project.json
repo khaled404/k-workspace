@@ -1,5 +1,4 @@
 {
-  "root": "libs/apps/eisenhower-matrix",
   "sourceRoot": "libs/apps/eisenhower-matrix/src",
   "projectType": "library",
   "tags": [],

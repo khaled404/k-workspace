@@ -1,5 +1,4 @@
 {
-  "root": "libs/json-data-provider",
   "sourceRoot": "libs/json-data-provider/src",
   "projectType": "library",
   "tags": [],

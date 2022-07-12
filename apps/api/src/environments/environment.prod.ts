@@ -1,6 +1,0 @@
-export default {
-  PORT: '8080',
-  secretToken: 'secretTokenAWu`,s,%ih4%xOETsKGbSuperSecretToken',
-  mongooseConnect:
-    'mongodb+srv://khaled:XM8.Gff5tqTt8*m@cluster0.gzzx2.mongodb.net/blog?retryWrites=true&w=majority',
-};
