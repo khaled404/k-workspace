@@ -21,7 +21,7 @@ const WordDetails = () => {
   useEventListener({
     eventName: 'keydown',
     handelEventListener: ({ key }) => {
-      if (key === 'Delete') {
+      if (key === 'Escape') {
         newModal({
           description: 'Do you want to delete the word?',
           massage: 'Delete Word',

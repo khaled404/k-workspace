@@ -48,7 +48,7 @@ const CalendarProvider = ({ children }: FC): TProvider => {
   const [week, setWeek] = useState<TCalendarData>();
   const [currentDate, setCurrentDate] = useState(new Date());
   const [currentView, setCurrentView] = useState<TCalendarViews>(
-    CALENDAR_VIEWS.DAY
+    CALENDAR_VIEWS.MONTH
   );
   const currentYear = currentDate.getFullYear();
   const currentMonthIndex = currentDate.getMonth();

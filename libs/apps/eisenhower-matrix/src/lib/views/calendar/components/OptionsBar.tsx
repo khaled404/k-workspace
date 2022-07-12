@@ -1,24 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Fragment } from 'react';
-import {
-  useCalendar,
-  CALENDAR_VIEWS,
-  TCalendarViews,
-} from '@k-workspace/shared/hooks';
-import {
-  ChevronDownIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-} from '@heroicons/react/solid';
-import { Menu, Transition } from '@headlessui/react';
-import { classNames } from '@k-workspace/utils';
-
-const calendarViews = Object.keys(CALENDAR_VIEWS).map(
-  (view: TCalendarViews) => ({
-    label: `${view.toLocaleLowerCase()} view`,
-    value: view,
-  })
-);
+import { useCalendar } from '@k-workspace/shared/hooks';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 
 const OptionsBar = () => {
   const {
@@ -26,8 +8,6 @@ const OptionsBar = () => {
     nextMonthHandler,
     previousMonthHandler,
     currentMothHandler,
-    changeCalendarView,
-    currentView,
   } = useCalendar();
 
   return (
@@ -62,6 +42,8 @@ const OptionsBar = () => {
           </button>
         </div>
         <div className="hidden md:ml-4 md:flex md:items-center">
+          {/*
+          TODO: Create Calendar Views 
           <Menu as="div" className="relative">
             <Menu.Button
               type="button"
@@ -107,7 +89,7 @@ const OptionsBar = () => {
                 </div>
               </Menu.Items>
             </Transition>
-          </Menu>
+          </Menu> */}
           <div className="ml-6 h-6 w-px bg-gray-300" />
           <button
             type="button"
