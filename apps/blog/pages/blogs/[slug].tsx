@@ -12,6 +12,7 @@ interface IArticle {
   renderedHTML: any;
 }
 const ProjectDetails = ({ article, renderedHTML }: IArticle) => {
+ 
   return (
     <div className="md:container md:mx-auto">
       <article>

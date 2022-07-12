@@ -7,8 +7,7 @@ import AppRouter from './routes';
 import { config } from 'dotenv';
 import * as path from 'path';
 import type { TError } from './types';
-
-config({ path: path.resolve(__dirname, '../.env') });
+import environment from './environments/environment';
 
 const app = express();
 
@@ -32,8 +31,8 @@ app.use((error: TError, req, res, next) => {
 });
 
 mongoose
-  .connect(process.env.mongooseConnect)
+  .connect(environment.mongooseConnect)
   .then(() => {
-    app.listen(process.env.PORT);
+    app.listen(environment.PORT);
   })
   .catch((err) => console.log(err));

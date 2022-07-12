@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 import User from '../../models/authentication';
 import { sign } from 'jsonwebtoken';
 import { checkIsError, convertToSchema, sendError } from '../../util';
+import environment from '../../environments/environment';
 
 const signup = async (req: Request, res: Response, next: NextFunction) => {
   const { email, name, password } = req.body;
@@ -36,8 +37,8 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
 
     const token = sign(
       { email: user.email, userId: user._id },
-      process.env.secretToken,
-      { expiresIn: '1h' },
+      environment.secretToken,
+      { expiresIn: '1h' }
     );
     const sendUser = convertToSchema(user);
     res.send({ token, user: sendUser });
@@ -49,7 +50,7 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
 const getCurrentUser = async (
   req: Request,
   res: Response,
-  next: NextFunction,
+  next: NextFunction
 ) => {
   const { id } = req.params;
 
