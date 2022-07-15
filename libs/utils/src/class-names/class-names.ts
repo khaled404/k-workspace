@@ -1,6 +1,5 @@
-import { TClassNames } from './class-names-types';
-
-const classNames = (...classes: TClassNames) => {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+const classNames = (...classes: any) => {
   return classes.filter(Boolean).join(' ');
 };
 

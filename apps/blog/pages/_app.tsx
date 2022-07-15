@@ -3,10 +3,11 @@ import {
   ModalProvider,
   NotificationsProvider,
 } from '@k-workspace/shared/components';
+import { ThemeProvider } from '@k-workspace/shared/context';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Page from './components/page';
-import './styles.css';
+import './styles/styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   const mainStyle: any = {
@@ -14,19 +15,22 @@ function CustomApp({ Component, pageProps }: AppProps) {
     minHeight: '100vh',
     paddingBottom: 120,
   };
+
   return (
     <>
       <Head>
-        <title>Welcome to blog!</title>
+        <title>khaled.</title>
       </Head>
-      <main className="app" style={mainStyle}>
-        <NotificationsProvider>
-          <ModalProvider>
-            <Page>
-              <Component {...pageProps} />
-            </Page>
-          </ModalProvider>
-        </NotificationsProvider>
+      <main className="app bg-lightBg dark:bg-slate-900" style={mainStyle}>
+        <ThemeProvider>
+          <NotificationsProvider>
+            <ModalProvider>
+              <Page>
+                <Component {...pageProps} />
+              </Page>
+            </ModalProvider>
+          </NotificationsProvider>
+        </ThemeProvider>
       </main>
     </>
   );

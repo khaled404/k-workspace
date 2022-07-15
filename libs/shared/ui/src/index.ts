@@ -5,3 +5,4 @@ export * from './lib/render-blogs/render-blogs';
 export * from './lib/home-header/home-header';
 export * from './lib/loading-screen/loading-screen';
 export * from './lib/login-and-register/login-and-register';
+export * from './lib/code-box/code-box';

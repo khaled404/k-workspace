@@ -30,6 +30,29 @@
         }
       }
     },
+    "shared-context": {
+      "root": "libs/shared/context",
+      "sourceRoot": "libs/shared/context/src",
+      "projectType": "library",
+      "tags": [],
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/shared/context/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/context"],
+          "options": {
+            "jestConfig": "libs/shared/context/jest.config.ts",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "shared-hooks": {
       "root": "libs/shared/hooks",
       "sourceRoot": "libs/shared/hooks/src",

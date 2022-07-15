@@ -25,6 +25,7 @@
       "@k-workspace/markdown": ["libs/markdown/src/index.ts"],
       "@k-workspace/memorize-words": ["libs/apps/memorize-words/src/index.ts"],
       "@k-workspace/shared/components": ["libs/shared/components/src/index.ts"],
+      "@k-workspace/shared/context": ["libs/shared/context/src/index.ts"],
       "@k-workspace/shared/hooks": ["libs/shared/hooks/src/index.ts"],
       "@k-workspace/shared/svg": ["libs/shared/svg/src/index.ts"],
       "@k-workspace/shared/ui": ["libs/shared/ui/src/index.ts"],

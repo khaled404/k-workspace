@@ -1,1 +1,1 @@
-export type TClassNames = string[];
+export type TClassNames = [string | boolean];

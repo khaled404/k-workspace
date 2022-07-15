@@ -7,6 +7,8 @@ type TProvider = JSX.Element | null;
 
 interface FC {
   children?: React.ReactNode;
+  className?: string;
+  [key: string]: any;
 }
 
 export { TState, TInput, TSubmit, TBody, FC, TProvider };

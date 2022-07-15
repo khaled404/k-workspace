@@ -3,6 +3,7 @@ import { TLocalStorage, TStorage } from './local-storage-types';
 const LOCAL_STORAGE_KEYS = {
   GET_USER: 'GET_USER',
   TASKS_LIST: 'TASKS_LIST',
+  THEME: 'theme',
 } as const;
 
 type TLocalStorageKeys =
@@ -20,7 +21,11 @@ const saveItem = (key: TLocalStorageKeys, data: TLocalStorage) => {
 const getItem = (key: TLocalStorageKeys, initData?: TLocalStorage) => {
   const data = store?.getItem(key);
   if (data) {
-    return JSON.parse(data);
+    try {
+      return JSON.parse(data);
+    } catch (error) {
+      return data;
+    }
   }
   return initData || false;
 };

@@ -15,6 +15,12 @@ const nextConfig = {
       process.env.NODE_ENV === 'development'
         ? 'http://localhost:8080'
         : 'https://k-backend.onrender.com',
+    //TODO: add production keys
+    searchConfig: {
+      appId: 'R2IYF7ETH7',
+      apiKey: '599cec31baffa4868cae4e79f180729b',
+      indexName: 'docsearch',
+    },
   },
 };
 
