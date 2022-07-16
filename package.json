@@ -42,7 +42,6 @@
     "@nrwl/express": "^14.4.2",
     "@nrwl/jest": "14.3.6",
     "@nrwl/linter": "14.3.6",
-    "@nrwl/nx-cloud": "14.1.2",
     "@nrwl/react": "14.3.6",
     "@nrwl/storybook": "14.3.6",
     "@nrwl/tao": "14.3.6",
