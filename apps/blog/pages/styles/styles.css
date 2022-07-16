@@ -1,5 +1,4 @@
 @tailwind base;
 @import './docsearch.css';
-@import './prism.css';
 @tailwind components;
 @tailwind utilities;

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { createContext, useContext, useMemo, useState } from 'react';
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import type { FC, TProvider } from '@k-workspace/types';
 import { getItem } from '@k-workspace/utils';
 
@@ -20,6 +20,10 @@ const ThemeProvider = ({ children }: FC): TProvider => {
 
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
+  useEffect(() => {
+    if (!theme) setTheme('dark');
+  }, []);
+
   const value = useMemo(
     () => ({
       theme,
