@@ -120,6 +120,17 @@
 .DocSearch-Input::-webkit-search-results-decoration {
   display: none;
 }
+@media (max-width: 639px) {
+  .DocSearch-Input {
+    padding-left: 2.5rem !important;
+    border-width: 0 !important;
+    outline: none !important;
+  }
+  .DocSearch-Input:focus {
+    outline-offset: none !important;
+    box-shadow: none !important;
+  }
+}
 
 .DocSearch-Reset {
   display: none;

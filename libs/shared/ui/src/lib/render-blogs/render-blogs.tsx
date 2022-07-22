@@ -38,16 +38,16 @@ export function RenderBlogs({ blogs }: IRenderBlogs) {
                       {post.tags.join(' , ')}
                     </p>
                     <span className="block mt-2">
-                      <p className="text-xl font-semibold text-lightText dark:text-darkText">
+                      <p className="text-xl font-semibold text-lightText dark:text-darkText capitalize">
                         {post.title}
                       </p>
-                      <p className="mt-3 text-base text-lightText dark:text-darkText/80">
+                      <p className="mt-3 text-base text-lightText dark:text-darkText/80 capitalize">
                         {post.description}
                       </p>
                     </span>
                   </div>
-                  <div className="mt-3 flex items-center">
-                    <div className="flex space-x-1 text-sm text-lightText dark:text-darkText/70">
+                  <div className="mt-3 flex items-center capitalize">
+                    <div className="flex space-x-1 text-sm text-lightText/70 dark:text-darkText/70">
                       <time dateTime={post.date}>{post.date}</time>
                     </div>
                   </div>
