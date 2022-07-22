@@ -40,9 +40,9 @@ export function CodeBox({ tabs, language, code }: CodeBoxProps) {
 
   if (!theme) return <></>;
   return (
-    <div className="relative rounded-2xl dark:bg-darkBoxBg bg-[#FBFBFB] ring-1 ring-white/10 backdrop-blur">
-      <div className="pl-4 pt-4">
-        <TrafficLightsIcon className="h-2.5 w-auto stroke-slate-500/30" />
+    <div className="relative rounded-2xl max-w-[100%] dark:bg-darkBoxBg bg-[#FBFBFB] ring-1 ring-white/10 backdrop-blur">
+      <div className="pl-4 pt-4 max-w-[100%]">
+        <TrafficLightsIcon className="h-2.5 w-auto stroke-slate-500/30 " />
         <div className="mt-4 flex space-x-2 text-xs">
           {tabs?.map((tab) => (
             <div
@@ -71,7 +71,7 @@ export function CodeBox({ tabs, language, code }: CodeBoxProps) {
         <div className="mt-6 flex items-start px-1 text-sm">
           <div
             aria-hidden="true"
-            className="select-none border-r border-slate-300/5 pr-4 font-mono text-slate-600"
+            className="select-none border-r border-slate-300/5 pr-4 font-mono text-slate-600 hidden sm:block"
           >
             {Array.from({
               length: activeCode.code.trim().split('\n').length,

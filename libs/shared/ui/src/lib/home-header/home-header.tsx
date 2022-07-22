@@ -23,7 +23,7 @@ export function HomeHeader() {
     },
   ];
   return (
-    <div className="container mx-auto grid  md:grid-cols-2 py-8 mt-5 md:px-0 px-4">
+    <div className="container mx-auto md:grid  md:grid-cols-2 py-8 mt-5 md:px-0 px-4">
       <div className="overflow-hidden md:px-0 pb-8">
         <p className="inline bg-gradient-to-r dark:from-indigo-200 dark:via-sky-400 dark:to-indigo-200 from-indigo-400 via-sky-600 to-indigo-400 bg-clip-text font-display text-5xl tracking-tight text-transparent">
           {title}
