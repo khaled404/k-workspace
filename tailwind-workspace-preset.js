@@ -22,6 +22,8 @@ module.exports = {
         lightText: colors.slate[900],
         darkBorder: colors.slate[500],
         lightBorder: colors.slate[900],
+        mainText: colors.sky[500],
+        mainTitle: colors.sky[400],
       },
     },
   },

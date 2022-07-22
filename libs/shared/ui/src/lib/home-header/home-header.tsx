@@ -7,22 +7,24 @@ export function HomeHeader() {
   } = headers;
 
   const code = `
-  {
-  "name": "khaled",
-  "skills": ["javascript","typescript","react","reactNative","css","html","git"]
+{
+  "FullName": "Khaled Mahmoud Mohamed",
+  "Email": "khaled.ma805@gmail.com",
+  "Phone": "01069926643",
+  "Address": "6th of October"
 }
  `;
 
   const tabs = [
     {
-      name: 'khaled.me.json',
+      name: 'info.me.json',
       code: code,
       language: 'json',
     },
   ];
   return (
-    <div className="container mx-auto grid grid-cols-2 py-8 mt-5">
-      <div className="overflow-hidden dark:-mb-32 dark:mt-[-4.5rem] dark:pb-32 dark:pt-[4.5rem] dark:lg:mt-[-4.75rem] dark:lg:pt-[4.75rem]">
+    <div className="container mx-auto grid  md:grid-cols-2 py-8 mt-5 md:px-0 px-4">
+      <div className="overflow-hidden md:px-0 pb-8">
         <p className="inline bg-gradient-to-r dark:from-indigo-200 dark:via-sky-400 dark:to-indigo-200 from-indigo-400 via-sky-600 to-indigo-400 bg-clip-text font-display text-5xl tracking-tight text-transparent">
           {title}
         </p>
