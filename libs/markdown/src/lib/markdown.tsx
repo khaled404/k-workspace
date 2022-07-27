@@ -23,7 +23,7 @@ const getBlogs = (): TArticles => {
 
     const file = fs.readFileSync(`${POSTS_PATH}/${fileName}`);
 
-    const { data, content }: any = matter(file, { parser: 'html' });
+    const { data, content }: any = matter(file);
 
     blogs.push({
       ...data,
