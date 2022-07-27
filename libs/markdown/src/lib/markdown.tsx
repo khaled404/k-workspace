@@ -23,7 +23,7 @@ const getBlogs = (): TArticles => {
 
     const file = fs.readFileSync(`${POSTS_PATH}/${fileName}`);
 
-    const { data, content }: any = matter(file);
+    const { data, content }: any = matter(file, { parser: 'html' });
 
     blogs.push({
       ...data,
@@ -33,7 +33,9 @@ const getBlogs = (): TArticles => {
     });
   }
 
-  return blogs;
+  return blogs.filter(
+    (item) => item.published || process.env.NODE_ENV === 'development'
+  );
 };
 
 const getArticleBySlug = (slug: string): TArticle => {

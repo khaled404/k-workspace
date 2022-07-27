@@ -20,6 +20,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>khaled.</title>
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
       </Head>
       <main className="app bg-lightBg dark:bg-slate-900" style={mainStyle}>
         <ThemeProvider>

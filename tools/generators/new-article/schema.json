@@ -18,6 +18,18 @@
       "description": "The name of the author",
       "default": "khaled mahmoud"
     },
+    "published": {
+      "type": "boolean",
+      "description": "blog is published?",
+      "default": false,
+      "x-prompt": "application is published? default value will be false"
+    },
+    "description": {
+      "type": "string",
+      "description": "blog description",
+      "default": "",
+      "x-prompt": "What's the blog description?"
+    },
     "tags": {
       "type": "array",
       "description": "tags",

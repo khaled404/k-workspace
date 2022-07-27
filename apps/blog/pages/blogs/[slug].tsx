@@ -1,32 +1,56 @@
-import type { TArticle } from '@k-workspace/shared/ui';
 import type { GetStaticProps, GetStaticPaths } from 'next';
+import { MDXRemote } from 'next-mdx-remote';
+import {
+  CodeBox,
+  ParagraphBase,
+  SectionHeaderLg,
+  SectionHeaderSm,
+  SectionHeaderBase,
+  Tags,
+  TArticle,
+  ListBase,
+  ImageContainer,
+  HrBase,
+  BlogNavigation,
+} from '@k-workspace/shared/ui';
 import {
   getArticleBySlug,
   getBlogs,
   renderMarkdown,
 } from '@k-workspace/markdown';
-import { MDXRemote } from 'next-mdx-remote';
 
 interface IArticle {
   article: TArticle;
   renderedHTML: any;
 }
-const ProjectDetails = ({ article, renderedHTML }: IArticle) => {
- 
-  return (
-    <div className="md:container md:mx-auto">
-      <article>
-        <h1 className="text-3xl font-bold hover:text-gray-700 pb-4">
-          {article.title}
-        </h1>
-        <div className="mb-3">by {article.author}</div>
-        <hr className="py-2" />
 
-        <MDXRemote {...renderedHTML} />
+const components: import('mdx/types').MDXComponents = {
+  code: CodeBox,
+  h1: SectionHeaderLg,
+  h2: SectionHeaderBase,
+  h3: SectionHeaderSm,
+  p: ParagraphBase,
+  ul: ListBase,
+  img: ImageContainer,
+  hr: HrBase,
+};
+
+const ProjectDetails = ({ article, renderedHTML }: IArticle) => {
+  return (
+    <div className="container mx-auto grid xl:grid-cols-5 gap-7 scroll-smooth">
+      <article className="py-7 xl:col-span-4 ">
+        <SectionHeaderLg className="pb-2">{article.title}</SectionHeaderLg>
+        <Tags data={article.tags} />
+        <ParagraphBase className="border-b text-xs mb-6  pb-4 pt-4 border-lightBorder  dark:border-darkBorder">
+          {article.date}
+        </ParagraphBase>
+        <MDXRemote {...renderedHTML} components={components} />
       </article>
+      <BlogNavigation />
     </div>
   );
 };
+
 export default ProjectDetails;
 
 export const getStaticProps: GetStaticProps<IArticle> = async ({ params }) => {

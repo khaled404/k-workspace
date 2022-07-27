@@ -6,3 +6,7 @@ export * from './lib/home-header/home-header';
 export * from './lib/loading-screen/loading-screen';
 export * from './lib/login-and-register/login-and-register';
 export * from './lib/code-box/code-box';
+export * from './lib/headers/headers';
+export * from './lib/tags/tags';
+export * from './lib/typography/typography';
+export * from './lib/blog-navigation/blog-navigation';

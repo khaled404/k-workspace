@@ -2,6 +2,7 @@
 /* eslint-disable-next-line */
 
 import Link from 'next/link';
+import { Tags } from '../tags/tags';
 
 export type TArticle = {
   author: string;
@@ -11,6 +12,7 @@ export type TArticle = {
   tags: string[];
   title: string;
   description: string;
+  published: boolean;
 };
 
 export interface IRenderBlogs {
@@ -34,9 +36,7 @@ export function RenderBlogs({ blogs }: IRenderBlogs) {
                 </div>
                 <div className="flex-1 bg-white dark:bg-darkBoxBg p-6 flex flex-col justify-between">
                   <div className="flex-1">
-                    <p className="text-xs font-medium text-mainText capitalize">
-                      {post.tags.join(' , ')}
-                    </p>
+                    <Tags data={post.tags} />
                     <span className="block mt-2">
                       <p className="text-xl font-semibold text-lightText dark:text-darkText capitalize">
                         {post.title}

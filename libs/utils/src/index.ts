@@ -8,3 +8,4 @@ export * from './send-response/send-response';
 export * from './body-parser/body-parser';
 export * from './convert-array-to-text/convert-array-to-text';
 export * from './date-converter/date-converter';
+export * from './id-from-string/id-from-string';

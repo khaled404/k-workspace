@@ -48,18 +48,20 @@ export function MobileNavigation() {
               as="div"
               className="divide-y divide-lightBorder dark:divide-darkIcon fixed inset-x-0 mt-4 flex origin-top flex-col rounded-2xl bg-white text-lightText dark:text-darkText dark:bg-darkBg p-4 text-lg tracking-tight shadow-xl ring-1 ring-darkBg/5 w-full"
             >
-              {navbar.links.map((item) => (
-                <Popover.Button key={item.name} as={Fragment}>
-                  <span
-                    className="py-2 text-base cursor-pointer"
-                    onClick={() => {
-                      push(item.href);
-                    }}
-                  >
-                    {item.name}
-                  </span>
-                </Popover.Button>
-              ))}
+              {navbar.links
+                .filter((item) => item.isActive)
+                .map((item) => (
+                  <Popover.Button key={item.name} as={Fragment}>
+                    <span
+                      className="py-2 text-base cursor-pointer"
+                      onClick={() => {
+                        push(item.href);
+                      }}
+                    >
+                      {item.name}
+                    </span>
+                  </Popover.Button>
+                ))}
             </Popover.Panel>
           </Transition.Child>
         </Transition.Root>

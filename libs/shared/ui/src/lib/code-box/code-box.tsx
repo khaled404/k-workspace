@@ -1,13 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { TrafficLightsIcon } from '@k-workspace/shared/svg';
 import { classNames } from '@k-workspace/utils';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useState } from 'react';
 import { useTheme } from '@k-workspace/shared/context';
 import themeDark from 'prism-react-renderer/themes/synthwave84';
 import themeLight from 'prism-react-renderer/themes/nightOwlLight';
+import type { FC } from '@k-workspace/types';
 
 /* eslint-disable-next-line */
-export interface CodeBoxProps {
+export interface CodeBoxProps extends FC {
   tabs?: {
     name: string;
     language: string;
@@ -29,18 +31,26 @@ const codeTheme = {
   light: themeLight,
 };
 
-export function CodeBox({ tabs, language, code }: CodeBoxProps) {
+export function CodeBox({
+  tabs,
+  language,
+  code,
+  className,
+  children,
+}: CodeBoxProps) {
   const { theme } = useTheme();
   const [activeCode, setActiveCode] = useState<any>(
-    tabs ? tabs[0] : { code, language }
+    tabs
+      ? tabs[0]
+      : {
+          code: code ? code : children,
+          language: language ? language : className?.split('-')[1],
+        }
   );
-  useEffect(() => {
-    setActiveCode(tabs ? tabs[0] : { code, language });
-  }, [tabs, language, code]);
 
   if (!theme) return <></>;
   return (
-    <div className="relative rounded-2xl max-w-[100%] dark:bg-darkBoxBg bg-[#FBFBFB] ring-1 ring-white/10 backdrop-blur">
+    <div className="relative mb-5 rounded-2xl max-w-[100%] dark:bg-darkBoxBg bg-[#FBFBFB] ring-1 ring-white/10 backdrop-blur">
       <div className="pl-4 pt-4 max-w-[100%]">
         <TrafficLightsIcon className="h-2.5 w-auto stroke-slate-500/30 " />
         <div className="mt-4 flex space-x-2 text-xs">
@@ -67,6 +77,23 @@ export function CodeBox({ tabs, language, code }: CodeBoxProps) {
               </button>
             </div>
           ))}
+          {!tabs && (
+            <div
+              className={classNames(
+                'flex h-6 rounded-full',
+                'bg-gradient-to-r from-sky-400/30 via-sky-400 to-sky-400/30 p-px font-medium text-sky-300'
+              )}
+            >
+              <button
+                className={classNames(
+                  'flex items-center rounded-full px-2.5 capitalize',
+                  'dark:bg-slate-800 bg-white'
+                )}
+              >
+                {activeCode.language}
+              </button>
+            </div>
+          )}
         </div>
         <div className="mt-6 flex items-start px-1 text-sm">
           <div
