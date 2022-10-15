@@ -2,3 +2,7 @@
 @import './docsearch.css';
 @tailwind components;
 @tailwind utilities;
+
+.container {
+  @apply mx-auto;
+}

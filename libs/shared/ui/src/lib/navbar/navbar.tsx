@@ -34,7 +34,7 @@ export function Navbar() {
           : 'dark:bg-transparent'
       )}
     >
-      <div className="container mx-auto flex flex-wrap items-center justify-between ">
+      <div className="container flex flex-wrap items-center justify-between ">
         <div className="flex items-center md:gap-x-12">
           <Link href="/" aria-label="Home">
             <a>

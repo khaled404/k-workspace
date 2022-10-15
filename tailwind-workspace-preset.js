@@ -5,12 +5,23 @@ module.exports = {
   mode: 'jit',
   darkMode: 'class',
   theme: {
+    screens: {
+      xsm: { max: '639px' },
+      xmd: { max: '767px' },
+      xlg: { max: '1023px' },
+      xxl: { max: '1279px' },
+      x2xl: { max: '1535px' },
+      ...defaultTheme.screens,
+    },
     extend: {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
       height: {
         max: 'max-content',
+      },
+      gridTemplateColumns: {
+        16: 'repeat(16, minmax(0, 1fr))',
       },
       colors: {
         darkIcon: colors.slate[500],

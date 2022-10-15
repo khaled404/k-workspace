@@ -1,6 +1,6 @@
 import { classNames, idFromString } from '@k-workspace/utils';
 import Link from 'next/link';
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 /* eslint-disable-next-line */
 export interface BlogNavigationProps {}
@@ -41,7 +41,7 @@ const getNodeHeadersLinks = (): TLinks => {
 
 export function BlogNavigation(props: BlogNavigationProps) {
   const [links, setLinks] = useState<TLinks>([]);
-  useLayoutEffect(() => {
+  useEffect(() => {
     setLinks(getNodeHeadersLinks());
   }, []);
 
@@ -57,7 +57,17 @@ export function BlogNavigation(props: BlogNavigationProps) {
         <ol className="mt-4 space-y-3 text-sm">
           {links?.map((section) => (
             <li key={section.id}>
-              <h3 className="font-normal text-slate-500 hover:text-slate-700 dark:text-darkText dark:hover:text-slate-300">
+              <h3
+                className={classNames(
+                  window?.location?.hash.includes(section.id) ||
+                    section.subLinks.some((i) =>
+                      window?.location?.hash.includes(i.id)
+                    )
+                    ? 'text-mainText hover:text-mainText/75'
+                    : 'text-slate-500 hover:text-slate-700 dark:text-darkText dark:hover:text-slate-300',
+                  'font-normal'
+                )}
+              >
                 <Link href={`#${section.id}`}>{section.title}</Link>
               </h3>
               {section.subLinks.length > 0 && (
@@ -65,7 +75,11 @@ export function BlogNavigation(props: BlogNavigationProps) {
                   {section.subLinks.map((subSection) => (
                     <li
                       key={subSection.id}
-                      className="hover:text-slate-600 dark:hover:text-slate-300"
+                      className={classNames(
+                        window?.location?.hash.includes(subSection.id)
+                          ? 'text-mainText hover:text-mainText/75'
+                          : 'hover:text-slate-600 dark:hover:text-slate-300'
+                      )}
                     >
                       <Link href={`#${subSection.id}`}>{subSection.title}</Link>
                     </li>

@@ -37,7 +37,7 @@ const components: import('mdx/types').MDXComponents = {
 
 const ProjectDetails = ({ article, renderedHTML }: IArticle) => {
   return (
-    <div className="container mx-auto grid xl:grid-cols-5 gap-7 scroll-smooth">
+    <div className="container grid xl:grid-cols-5 gap-7 scroll-smooth">
       <article className="py-7 xl:col-span-4 ">
         <SectionHeaderLg className="pb-2">{article.title}</SectionHeaderLg>
         <Tags data={article.tags} />

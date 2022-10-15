@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const convertArrayToText = (array: any[]): string => {
+const convertArrayToText = (array: any[]) => {
   for (let index = 0; index < array.length; index++) {
     const arrayString: string[] = [];
     const element = array[index];

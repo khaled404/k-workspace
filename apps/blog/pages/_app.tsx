@@ -6,7 +6,7 @@ import {
 import { ThemeProvider } from '@k-workspace/shared/context';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import Page from './components/page';
+import Page from '../components/shared/Page';
 import './styles/styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {

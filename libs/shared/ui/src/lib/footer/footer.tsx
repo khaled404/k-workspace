@@ -22,7 +22,7 @@ const RenderIcon = (props: { name: string; className: string }): any => {
 export function Footer() {
   return (
     <footer className="bg-lightBg dark:bg-darkBg py-5 absolute bottom-0 w-full">
-      <div className="container mx-auto md:flex md:items-center md:justify-between">
+      <div className="container md:flex md:items-center md:justify-between">
         <div className="flex justify-center space-x-6 md:order-2">
           {footer?.social?.map((item: TSocial) => (
             <a

@@ -47,7 +47,7 @@ const ProjectDetails = ({ project }: IProjectDetails) => {
   ];
 
   return (
-    <div className="container mx-auto">
+    <div className="container">
       <Head meta={meta} title={project.slug} />
       <ProjectComponent />
     </div>
